@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Problemas de Otimização</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,6 +153,11 @@ body {
   letter-spacing: -0.3px;
 }
 
+.logo-img {
+  height: 36px;
+  width: auto;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -237,6 +243,8 @@ header .container {
 
 .hero-content { text-align: center; }
 
+.hero-content .btn { margin-inline: auto; }
+
 .hero-eyebrow {
   display: inline-block;
   font-size: 11px;
@@ -302,6 +310,9 @@ header .container {
 .conteudo .section-title {
   color: var(--royal-azul-escuro);
   margin-bottom: 24px;
+  line-height: 1.4;
+  padding-top: 4px;
+  overflow: visible;
 }
 
 .conteudo .section-text {
@@ -730,7 +741,7 @@ header .container {
 .proof-step--highlight .step-number { background: var(--azul); }
 .proof-step--result .step-number { background: var(--verde); }
 
-.step-content { flex: 1; }
+.step-content { flex: 1; min-width: 0; }
 
 .step-title {
   font-size: var(--size-4);
@@ -744,6 +755,8 @@ header .container {
   color: var(--cinza03);
   line-height: 1.7;
   margin-bottom: 10px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .math-block {
@@ -1108,6 +1121,7 @@ footer { background: var(--white); }
   /* Section titles */
   .conteudo .section-title {
     font-size: 20px;
+    line-height: 1.5;
   }
 
   .simulador-title {
@@ -1550,7 +1564,7 @@ footer { background: var(--white); }
   <header>
     <div class="container">
       <a href="index.html" class="logo">
-        <span class="logo-text">LOGO.ARROCHE</span>
+        <img src="images/logo.png" alt="Logo" class="logo-img">
       </a>
       <div class="navbar-wrapper">
         <button class="navbar-menu-btn" data-navbar-toggle-btn aria-label="Abrir menu">
@@ -2018,7 +2032,7 @@ footer { background: var(--white); }
       <div class="container">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <span class="logo-text">LOGO.ARROCHE</span>
+            <img src="images/logo.png" alt="Logo" class="logo-img">
           </a>
         </div>
 
