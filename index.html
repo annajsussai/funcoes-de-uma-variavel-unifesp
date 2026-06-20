@@ -98,7 +98,7 @@ body {
 ::-webkit-scrollbar-track { background: var(--white-2); }
 ::-webkit-scrollbar-thumb { background: hsl(0, 0%, 55%); border-radius: 5px; }
 
-.container { padding: 0 15px; }
+.container { padding: 0 16px; width: 100%; }
 
 .h1, .h2, .h3 {
   font-weight: var(--weight-600);
@@ -221,7 +221,7 @@ header .container {
 
 .hero {
   position: relative;
-  padding: 70px 0 80px;
+  padding: 48px 0 60px;
   background: linear-gradient(135deg, #EEF4FF 0%, #DDEAFF 55%, #FFFBEB 100%);
   overflow: hidden;
 }
@@ -273,8 +273,8 @@ header .container {
 }
 
 .hero-svg {
-  width: 220px;
-  height: 200px;
+  width: clamp(140px, 50vw, 220px);
+  height: auto;
   filter: drop-shadow(0 8px 24px rgba(15,82,186,0.15));
   animation: dogBob 3s ease-in-out infinite;
 }
@@ -295,7 +295,7 @@ header .container {
 }
 
 .conteudo {
-  padding: 80px 0;
+  padding: 56px 0;
   text-align: center;
 }
 
@@ -306,7 +306,7 @@ header .container {
 
 .conteudo .section-text {
   color: var(--cinza03);
-  font-size: var(--size-3);
+  font-size: clamp(14px, 4vw, 18px);
   margin-bottom: 32px;
   line-height: 1.7;
   max-width: 720px;
@@ -316,14 +316,15 @@ header .container {
 .intuition-block {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
   background: linear-gradient(135deg, #DDEAFF, #FFFBEB);
   border-left: 4px solid var(--azul);
   border-radius: 12px;
-  padding: 20px 24px;
+  padding: 16px;
   margin: 0 auto 32px;
   text-align: left;
   max-width: 720px;
+  word-break: break-word;
 }
 
 .intuition-icon { flex-shrink: 0; margin-top: 2px; color: var(--azul); display: flex; align-items: center; }
@@ -338,7 +339,7 @@ header .container {
   background-color: var(--royal-azul-escuro);
   color: var(--white);
   cursor: pointer;
-  padding: 16px 24px;
+  padding: 14px 16px;
   width: 100%;
   max-width: 720px;
   margin: 0 auto 10px;
@@ -346,16 +347,18 @@ header .container {
   border-radius: 8px;
   text-align: left;
   font-family: var(--poppins);
-  font-size: var(--size-4);
+  font-size: var(--size-5);
   font-weight: var(--weight-600);
   line-height: 1.5;
   transition: var(--transition);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   position: relative;
   overflow: hidden;
+  word-break: break-word;
 }
 
 .collapsible::before {
@@ -372,6 +375,7 @@ header .container {
 .collapsible::after {
   content: '▼';
   font-size: 12px;
+  flex-shrink: 0;
   transition: var(--transition);
 }
 
@@ -417,15 +421,16 @@ header .container {
 .sim-explainer-item {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 12px;
   background: var(--white);
   border-radius: 10px;
-  padding: 14px 18px;
+  padding: 12px 14px;
   border-left: 3px solid var(--azul);
   box-shadow: 0 1px 6px rgba(15,82,186,0.07);
-  font-size: var(--size-4);
+  font-size: var(--size-5);
   color: var(--cinza03);
   line-height: 1.6;
+  word-break: break-word;
 }
 
 .sim-explainer-item strong {
@@ -441,7 +446,7 @@ header .container {
 }
 
 .simulador-section {
-  padding: 80px 0;
+  padding: 56px 0;
   background: var(--verde-bg);
 }
 
@@ -460,10 +465,41 @@ header .container {
 .simulador-grid {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 0;
 }
 
-.slider-panel { margin-bottom: 20px; }
+.sim-left,
+.sim-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.sim-right {
+  margin-top: 16px;
+}
+
+/* On mobile: sim-left and sim-right dissolve into a single column.
+   Order: slider → cercado → cachorro → stats → gráfico */
+@media (max-width: 767px) {
+  .simulador-grid {
+    gap: 0;
+  }
+
+  .sim-left,
+  .sim-right {
+    display: contents; /* dissolve wrappers so children flow directly */
+  }
+
+  .slider-panel        { order: 0; margin-bottom: 16px; }
+  .enclosure-wrapper   { order: 1; margin-bottom: 16px; }
+  .dog-panel           { order: 2; margin-bottom: 16px; }
+  .graph-wrapper       { order: 3; margin-bottom: 16px; }
+  .stats-grid          { order: 4; margin-bottom: 0; }
+}
+
+.slider-panel { margin-bottom: 0; }
 
 .slider-label {
   font-size: var(--size-4);
@@ -514,7 +550,6 @@ header .container {
   border-radius: 14px;
   padding: 16px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  margin-bottom: 20px;
 }
 
 .canvas-label {
@@ -528,26 +563,28 @@ header .container {
 
 .canvas-wrapper canvas {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 100% !important;
+  height: auto !important;
   border-radius: 8px;
+  max-width: 100%;
 }
 
 .dog-panel {
   background: white;
   border-radius: 14px;
-  padding: 16px 16px 16px 8px;
+  padding: 14px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .dog-css-wrapper {
   position: relative;
   flex-shrink: 0;
-  width: 150px;
-  height: 120px;
+  width: clamp(100px, 28vw, 150px);
+  height: clamp(80px, 22vw, 120px);
   overflow: visible;
 }
 
@@ -592,7 +629,6 @@ header .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 20px;
 }
 
 .stat-card {
@@ -641,7 +677,7 @@ header .container {
 
 .prova-section {
   background: white;
-  padding: 80px 0;
+  padding: 56px 0;
 }
 
 .proof-steps {
@@ -656,7 +692,7 @@ header .container {
 .proof-steps::before {
   content: '';
   position: absolute;
-  left: 24px;
+  left: 23px;
   top: 40px;
   bottom: 40px;
   width: 2px;
@@ -666,8 +702,8 @@ header .container {
 
 .proof-step {
   display: flex;
-  gap: 24px;
-  padding: 24px 0;
+  gap: 16px;
+  padding: 20px 0;
   border-bottom: 1px solid rgba(15,82,186,0.08);
   text-align: left;
   position: relative;
@@ -677,15 +713,16 @@ header .container {
 
 .step-number {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
   border-radius: 50%;
   background: var(--royal-azul-escuro);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: var(--weight-700);
   letter-spacing: 0.5px;
 }
@@ -713,10 +750,12 @@ header .container {
   background: var(--white-2);
   border-left: 3px solid var(--azul);
   border-radius: 0 8px 8px 0;
-  padding: 12px 16px;
+  padding: 10px 12px;
   margin: 8px 0;
   overflow-x: auto;
-  font-size: var(--size-4);
+  font-size: clamp(12px, 3.5vw, 15px);
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
 .proof-step--highlight .math-block {
@@ -752,12 +791,12 @@ header .container {
   background: #fef3c7;
 }
 
-.quiz { padding: 80px 0; }
+.quiz { padding: 56px 0; }
 
 .quiz-card {
   background: linear-gradient(135deg, var(--roxo-escuro) 0%, var(--black) 100%);
-  padding: 60px 32px;
-  border-radius: 20px;
+  padding: clamp(28px, 6vw, 60px) clamp(16px, 4vw, 32px);
+  border-radius: 16px;
   text-align: center;
 }
 
@@ -807,7 +846,7 @@ header .container {
 }
 
 .opt-quiz-option {
-  padding: 12px 18px;
+  padding: 12px 14px;
   border: 2px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   cursor: pointer;
@@ -815,6 +854,8 @@ header .container {
   background: rgba(255,255,255,0.05);
   color: var(--white-2);
   font-size: var(--size-5);
+  text-align: left;
+  line-height: 1.5;
 }
 
 .opt-quiz-option:hover {
@@ -864,9 +905,14 @@ header .container {
 .opt-quiz-navigation {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   margin-top: 24px;
   flex-wrap: wrap;
+}
+
+.opt-quiz-navigation .btn {
+  min-width: 120px;
+  padding: 10px 24px;
 }
 
 .opt-quiz-results {
@@ -892,7 +938,7 @@ header .container {
 
 footer { background: var(--white); }
 
-.footer-top { padding: 60px 0 40px; }
+.footer-top { padding: 40px 0 28px; }
 
 .footer-top .container {
   display: flex;
@@ -991,6 +1037,113 @@ footer { background: var(--white); }
   pointer-events: all;
 }
 
+/* ── MOBILE-FIRST CORRECTIONS ── */
+@media (max-width: 480px) {
+  :root {
+    --size-1: 26px;
+    --size-2: 22px;
+    --size-3: 15px;
+    --size-4: 14px;
+    --size-5: 13px;
+  }
+
+  .hero-title {
+    font-size: clamp(26px, 8vw, 40px);
+  }
+
+  .hero-text {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+
+  /* Proof steps: shrink circle so text has room */
+  .proof-step {
+    gap: 12px;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 11px;
+  }
+
+  .proof-steps::before {
+    left: 17px;
+  }
+
+  /* Dog panel: give info text more room */
+  .dog-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .dog-state-desc {
+    font-size: 11px;
+  }
+
+  /* Stats grid stays 2-col on mobile */
+  .stats-grid {
+    gap: 8px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  /* Slider ticks smaller */
+  .slider-ticks {
+    font-size: 10px;
+  }
+
+  /* Quiz card */
+  .quiz-title {
+    font-size: 20px;
+  }
+
+  /* Section titles */
+  .conteudo .section-title {
+    font-size: 20px;
+  }
+
+  .simulador-title {
+    font-size: 20px;
+  }
+
+  /* Graph legend wraps naturally */
+  .graph-legend {
+    gap: 8px;
+    font-size: 10px;
+  }
+
+  /* Derivative live badge */
+  .derivative-live {
+    font-size: 12px;
+    padding: 5px 10px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
 @media (min-width: 560px) {
   .container { max-width: 550px; margin-inline: auto; }
 
@@ -1015,9 +1168,19 @@ footer { background: var(--white); }
   .simulador-grid {
     flex-direction: row;
     align-items: flex-start;
+    gap: 24px;
   }
 
-  .sim-left, .sim-right { flex: 1; }
+  /* Restore wrappers on desktop */
+  .sim-left, .sim-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: auto;
+    gap: 16px;
+  }
+
+  .sim-right { margin-top: 0; }
 }
 
 @media (min-width: 1024px) {
@@ -1080,21 +1243,14 @@ footer { background: var(--white); }
   .content.active { animation: none; }
 }
 
-.dog-css-wrapper {
-  position: relative;
-  width: 140px;
-  height: 110px;
-  flex-shrink: 0;
-  overflow: visible;
-}
-
 .dog-css-wrapper .dog {
   position: absolute;
   top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 130px;
-  height: 104px;
+  width: 90%;
+  height: auto;
+  aspect-ratio: 130 / 104;
   z-index: 0;
 }
 
@@ -1520,9 +1676,10 @@ footer { background: var(--white); }
             </div>
           </div>
 
+          <!-- Mobile: tudo em coluna única na ordem certa -->
           <div class="simulador-grid">
 
-            
+            <!-- BLOCO 1: Slider + Vista aérea + Cachorro -->
             <div class="sim-left">
               <div class="slider-panel">
                 <label class="slider-label" for="widthSlider">
@@ -1536,13 +1693,11 @@ footer { background: var(--white); }
                 </div>
               </div>
 
-              
               <div class="canvas-wrapper enclosure-wrapper">
                 <div class="canvas-label">Vista Aérea do Cercado</div>
                 <canvas id="enclosureCanvas" width="340" height="240"></canvas>
               </div>
 
-              
               <div class="dog-panel" id="dogPanel">
                 <div class="dog-css-wrapper" id="dogCssWrapper">
                   <div class="dog">
@@ -1581,9 +1736,8 @@ footer { background: var(--white); }
               </div>
             </div>
 
-            
+            <!-- BLOCO 2: Stats + Gráfico -->
             <div class="sim-right">
-              
               <div class="stats-grid">
                 <div class="stat-card">
                   <div class="stat-label">Largura (x)</div>
@@ -1595,15 +1749,14 @@ footer { background: var(--white); }
                 </div>
                 <div class="stat-card stat-area">
                   <div class="stat-label">Área A(x)</div>
-                  <div class="stat-value" id="statArea">25.0 m²</div>
+                  <div class="stat-value" id="statArea">25.00 m²</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-label">Derivada A'(x)</div>
-                  <div class="stat-value" id="statDerivative">0.0</div>
+                  <div class="stat-value" id="statDerivative">0.00</div>
                 </div>
               </div>
 
-              
               <div class="canvas-wrapper graph-wrapper">
                 <div class="canvas-label">Gráfico de A(x) = x(10 − x)</div>
                 <canvas id="graphCanvas" width="340" height="260"></canvas>
