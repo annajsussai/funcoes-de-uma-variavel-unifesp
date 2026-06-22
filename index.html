@@ -55,6 +55,134 @@
   --transition: 0.25s ease-in-out;
 }
 
+/* ── DARK MODE ── */
+[data-theme="dark"] {
+  --white: #0f1117;
+  --white-2: #1a1f2e;
+  --black: #f0f4ff;
+  --cinza03: #a8b8cc;
+  --cinza04: #6e84a0;
+  --royal-azul-escuro: #c8d8f5;
+  --azul-escuro: #e8f0ff;
+}
+
+[data-theme="dark"] body {
+  background: #0f1117;
+  color: #c8d8f5;
+}
+
+[data-theme="dark"] header {
+  background: rgba(15, 17, 23, 0.97);
+  border-bottom-color: rgba(71, 115, 214, 0.2);
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #0d1525 0%, #111b30 55%, #181208 100%);
+}
+
+[data-theme="dark"] .hero-shape { background: #0f1117; }
+
+[data-theme="dark"] .conteudo { background: #0f1117; }
+
+[data-theme="dark"] .section-text { color: #a8b8cc; }
+
+[data-theme="dark"] .intuition-block {
+  background: linear-gradient(135deg, #0d1525, #1a1208);
+  border-left-color: #4773d6;
+}
+
+[data-theme="dark"] .intuition-text { color: #c8d8f5; }
+
+[data-theme="dark"] .content {
+  background: #1a1f2e;
+  color: #a8b8cc;
+}
+
+[data-theme="dark"] .simulador-section { background: #131825; }
+
+[data-theme="dark"] .prova-section { background: #0f1117; }
+
+[data-theme="dark"] .canvas-wrapper,
+[data-theme="dark"] .dog-panel,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .sim-explainer-item {
+  background: #1a1f2e;
+}
+
+[data-theme="dark"] .stat-card.stat-area {
+  background: linear-gradient(135deg, #1a3a8f, #8a5d00);
+}
+
+[data-theme="dark"] .stat-label { color: #6e84a0; }
+[data-theme="dark"] .stat-value { color: #c8d8f5; }
+
+[data-theme="dark"] .step-title { color: #c8d8f5; }
+[data-theme="dark"] .step-text  { color: #a8b8cc; }
+
+[data-theme="dark"] .math-block {
+  background: #1a1f2e;
+  color: #c8d8f5;
+}
+
+[data-theme="dark"] .proof-step--highlight .math-block { background: #0d1a35; }
+[data-theme="dark"] .proof-step--result .math-block   { background: #0d1a35; }
+
+[data-theme="dark"] footer { background: #0f1117; }
+
+[data-theme="dark"] .footer-link { color: #6e84a0; }
+[data-theme="dark"] .footer-link:hover { color: #c8d8f5; }
+[data-theme="dark"] .footer-text { color: #a8b8cc; }
+[data-theme="dark"] .copyright   { color: #6e84a0; }
+
+[data-theme="dark"] .social-link {
+  color: #a8b8cc;
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Section wave dark mode overrides */
+[data-theme="dark"] .hero-shape svg path { fill: #0f1117 !important; }
+[data-theme="dark"] .section-wave--to-sim svg path { fill: #131825 !important; }
+[data-theme="dark"] .section-wave--to-prova svg path { fill: #0f1117 !important; }
+[data-theme="dark"] .sim-wave-bottom path { fill: #0f1117 !important; }
+
+[data-theme="dark"] ::-webkit-scrollbar-track { background: #1a1f2e; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #3a4a60; }
+
+[data-theme="dark"] .derivative-live {
+  background: rgba(71, 115, 214, 0.15);
+  color: #c8d8f5;
+}
+
+[data-theme="dark"] .result-conclusion {
+  background: #2a1e00;
+  color: #f5dfa0 !important;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--royal-azul-escuro);
+  font-size: 20px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(71,115,214,0.1);
+}
+
+[data-theme="dark"] .dark-mode-toggle {
+  color: #f0d060;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -180,8 +308,11 @@ header .container {
   color: var(--royal-azul-escuro);
 }
 
+.navbar-wrapper { position: relative; }
+
 .hamburger-icon { display: block; }
 
+/* ── MOBILE NAV: dropdown simples ── */
 .navbar {
   position: absolute;
   top: calc(100% + 5px);
@@ -191,16 +322,19 @@ header .container {
   max-height: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: var(--transition);
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+  opacity: 0;
   overflow: hidden;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 200;
 }
 
 .navbar.active {
   visibility: visible;
   pointer-events: all;
   max-height: 400px;
+  opacity: 1;
 }
 
 .navbar-list { padding: 10px; }
@@ -214,16 +348,19 @@ header .container {
   color: var(--white);
   font-weight: var(--weight-600);
   padding: 13px 10px;
-  opacity: 0;
-  transition: opacity var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 4px;
 }
+
+/* Toggle inside nav: show only on desktop */
+.nav-item--toggle { display: none; }
+.mobile-dark-toggle { color: var(--royal-azul-escuro); }
+[data-theme="dark"] .mobile-dark-toggle { color: #f0d060; }
+[data-theme="dark"] .navbar-menu-btn { color: #c8d8f5; }
 
 .nav-link:hover { background: hsla(0, 0%, 100%, 0.15); }
-
-.navbar.active .nav-link {
-  transition-delay: 0.15s;
-  opacity: 1;
-}
 
 .hero {
   position: relative;
@@ -244,21 +381,24 @@ header .container {
 .hero-main {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 32px;
   width: 100%;
 }
 
-.hero-favicon {
+.hero-img-wrap {
   flex-shrink: 0;
-  width: clamp(64px, 18vw, 110px);
-  height: clamp(64px, 18vw, 110px);
-  filter: drop-shadow(0 8px 20px rgba(15,82,186,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.hero-content { text-align: center; min-width: 0; }
-
-.hero-content .btn { margin-inline: auto; }
+.hero-favicon {
+  width: clamp(180px, 30vw, 340px);
+  height: auto;
+  filter: drop-shadow(0 12px 32px rgba(15,82,186,0.22));
+  animation: dogBob 3s ease-in-out infinite;
+}
 
 .hero-eyebrow {
   display: inline-block;
@@ -302,6 +442,24 @@ header .container {
   animation: dogBob 3s ease-in-out infinite;
 }
 
+.hero-svg {
+  width: clamp(140px, 50vw, 220px);
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(15,82,186,0.15));
+  animation: dogBob 3s ease-in-out infinite;
+}
+
+/* Hide favicon image on mobile */
+@media (max-width: 767px) {
+  .hero-img-wrap { display: none !important; }
+  .hero-main { justify-content: center; }
+  .hero-content { text-align: center; }
+  .hero-content .btn { margin-inline: auto; }
+  .hero-text { margin-inline: auto; }
+}
+
+.hero-content { flex: 1; min-width: 0; text-align: left; }
+
 @keyframes dogBob {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
@@ -312,9 +470,36 @@ header .container {
   bottom: -1px;
   left: 0;
   right: 0;
-  height: 60px;
-  background: white;
-  clip-path: ellipse(55% 100% at 50% 100%);
+  line-height: 0;
+}
+
+.hero-shape svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* section wave dividers */
+.section-wave {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+
+.section-wave--to-prova {
+  background: var(--verde-bg);
+}
+
+[data-theme="dark"] .section-wave--to-prova {
+  background: #131825;
+}
+
+.section-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .conteudo {
@@ -1181,9 +1366,6 @@ footer { background: var(--white); }
 @media (min-width: 560px) {
   .container { max-width: 550px; margin-inline: auto; }
 
-  .navbar-wrapper { position: relative; }
-  .navbar { top: calc(100% + 10px); right: 0; left: auto; width: 280px; border-radius: 10px; }
-
   .simulador-grid { gap: 24px; }
 }
 
@@ -1225,6 +1407,7 @@ footer { background: var(--white); }
   .container { max-width: 960px; }
 
   .navbar-menu-btn { display: none; }
+  .mobile-dark-toggle { display: none; }
 
   .navbar {
     position: static;
@@ -1237,6 +1420,7 @@ footer { background: var(--white); }
     width: auto;
     border-radius: 0;
     box-shadow: none;
+    opacity: 1;
   }
 
   .navbar-list {
@@ -1246,18 +1430,47 @@ footer { background: var(--white); }
     padding: 0;
   }
 
+  .nav-item:not(:last-child) { border-bottom: none; }
+
+  /* Toggle item inline with nav links */
+  .nav-item--toggle {
+    display: flex;
+    align-items: center;
+    border-bottom: none !important;
+    margin-left: 8px;
+  }
+
   .nav-link {
-    opacity: 1;
     color: var(--royal-azul-escuro);
+    font-size: var(--size-5);
     padding: 6px 14px;
     border-radius: 6px;
-    transition: all 0.25s;
   }
 
   .nav-link:hover {
     background: rgba(15,82,186,0.08);
     color: var(--azul);
   }
+
+  /* Dark mode: nav links legible on dark header */
+  [data-theme="dark"] .nav-link {
+    color: #c8d8f5;
+  }
+  [data-theme="dark"] .nav-link:hover {
+    background: rgba(71,115,214,0.15);
+    color: #fff;
+  }
+
+  /* Toggle icon color on desktop */
+  .dark-mode-toggle {
+    color: var(--royal-azul-escuro);
+    padding: 6px;
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+  }
+  [data-theme="dark"] .dark-mode-toggle { color: #f0d060; }
+  .dark-mode-toggle:hover { background: rgba(15,82,186,0.08); }
 
   .footer-top .container {
     flex-direction: row;
@@ -1588,19 +1801,33 @@ footer { background: var(--white); }
       <a href="index.html" class="logo">
         <img src="images/logo.png" alt="Logo" class="logo-img">
       </a>
-      <div class="navbar-wrapper">
-        <button class="navbar-menu-btn" data-navbar-toggle-btn aria-label="Abrir menu">
-          <span class="hamburger-icon">☰</span>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <!-- Ícone de tema: visível só no mobile (fora do nav) -->
+        <button class="dark-mode-toggle mobile-dark-toggle" id="darkModeToggleMobile" aria-label="Alternar modo noturno">
+          <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="iconSunAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <nav class="navbar" data-navbar>
-          <ul class="navbar-list">
-            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#introducao" class="nav-link">Introdução</a></li>
-            <li class="nav-item"><a href="#simulador" class="nav-link">Simulador</a></li>
-            <li class="nav-item"><a href="#prova" class="nav-link">Resolução</a></li>
-            <li class="nav-item"><a href="#quiz" class="nav-link">Quiz</a></li>
-          </ul>
-        </nav>
+        <div class="navbar-wrapper">
+          <button class="navbar-menu-btn" data-navbar-toggle-btn aria-label="Abrir menu">
+            <span class="hamburger-icon">☰</span>
+          </button>
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+              <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="#introducao" class="nav-link">Introdução</a></li>
+              <li class="nav-item"><a href="#simulador" class="nav-link">Simulador</a></li>
+              <li class="nav-item"><a href="#prova" class="nav-link">Resolução</a></li>
+              <li class="nav-item"><a href="#quiz" class="nav-link">Quiz</a></li>
+              <!-- Toggle: visível só no desktop (dentro do nav) -->
+              <li class="nav-item nav-item--toggle">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo noturno" title="Modo noturno">
+                  <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                  <svg class="iconSunAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </header>
@@ -1612,18 +1839,24 @@ footer { background: var(--white); }
       <section class="hero" id="home">
         <div class="container">
           <div class="hero-main">
-            <img src="images/favicon.svg" alt="" class="hero-favicon" aria-hidden="true">
             <div class="hero-content">
               <span class="hero-eyebrow">Funções de uma variável · Otimização</span>
               <h1 class="h1 hero-title">Problemas de Otimização</h1>
               <p class="hero-text">
                 Você já pensou em como seria incrível se a gente conseguisse descobrir, sem quebrar a cabeça, a decisão perfeita para economizar espaço, gastar menos ou lucrar mais em qualquer situação?
               </p>
-              <button class="btn btn-primary">Saber mais</button>
+              <button class="btn btn-primary" style="margin-bottom: 60px;">Saber mais</button>
+            </div>
+            <div class="hero-img-wrap">
+              <img src="images/favicon.svg" alt="" class="hero-favicon" aria-hidden="true">
             </div>
           </div>
         </div>
-        <div class="hero-shape" aria-hidden="true"></div>
+        <div class="hero-shape" aria-hidden="true">
+          <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0,40 C240,90 480,0 720,50 C960,100 1200,20 1440,60 L1440,90 L0,90 Z" fill="var(--white)"/>
+          </svg>
+        </div>
       </section>
 
       
@@ -1684,6 +1917,13 @@ footer { background: var(--white); }
       </section>
 
       
+      <!-- Wave divider before simulador -->
+      <div class="section-wave section-wave--to-sim" aria-hidden="true">
+        <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,20 C360,70 720,0 1080,40 C1260,60 1380,10 1440,30 L1440,70 L0,70 Z" fill="var(--verde-bg)"/>
+        </svg>
+      </div>
+
       <section class="simulador-section" id="simulador">
         <div class="container">
           <h2 class="h2 section-title simulador-title">O Simulador Interativo</h2>
@@ -1812,6 +2052,13 @@ footer { background: var(--white); }
       </section>
 
       
+      <!-- Wave divider before resolução -->
+      <div class="section-wave section-wave--to-prova" aria-hidden="true">
+        <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,35 C300,0 600,65 900,30 C1100,10 1300,55 1440,25 L1440,70 L0,70 Z" fill="var(--white)"/>
+        </svg>
+      </div>
+
       <section class="conteudo prova-section" id="prova">
         <div class="container">
           <h2 class="h2 section-title">Resolução Matemática Completa</h2>
@@ -2651,6 +2898,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+</script>
+<script>
+'use strict';
+
+/* ── DARK MODE ── */
+(function() {
+  const html  = document.documentElement;
+  const saved = localStorage.getItem('theme');
+
+  function setTheme(dark) {
+    html.setAttribute('data-theme', dark ? 'dark' : 'light');
+    document.querySelectorAll('.iconMoonAll').forEach(el => el.style.display = dark ? 'none'  : 'block');
+    document.querySelectorAll('.iconSunAll').forEach(el  => el.style.display = dark ? 'block' : 'none');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+
+  // Restore preference (padrão: tema claro)
+  if (saved === 'dark') setTheme(true);
+
+  // Both toggle buttons fire the same action
+  document.querySelectorAll('.dark-mode-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTheme(html.getAttribute('data-theme') !== 'dark');
+    });
+  });
+})();
+
+/* ── CLOSE BUTTON FOR MOBILE NAVBAR ── */
+document.getElementById('navbarCloseBtn')?.addEventListener('click', function() {
+  document.querySelector('[data-navbar]')?.classList.remove('active');
+});
+
+/* Close mobile menu when a nav link is clicked */
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    const navbar = document.querySelector('[data-navbar]');
+    if (navbar && window.innerWidth < 1024) navbar.classList.remove('active');
+  });
+});
 </script>
 </body>
 </html>
