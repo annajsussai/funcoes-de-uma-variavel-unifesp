@@ -77,7 +77,7 @@
 }
 
 [data-theme="dark"] .hero {
-  background: linear-gradient(135deg, #0d1525 0%, #111b30 55%, #181208 100%);
+  background: #1a2540;
 }
 
 [data-theme="dark"] .hero-shape { background: #0f1117; }
@@ -119,6 +119,13 @@
 [data-theme="dark"] .step-title { color: #c8d8f5; }
 [data-theme="dark"] .step-text  { color: #a8b8cc; }
 
+[data-theme="dark"] .step-number {
+  background: #4773d6;
+  color: #ffffff;
+}
+[data-theme="dark"] .proof-step--highlight .step-number { background: #5b8def; color: #ffffff; }
+[data-theme="dark"] .proof-step--result .step-number   { background: #2a6dd9; color: #ffffff; }
+
 [data-theme="dark"] .math-block {
   background: #1a1f2e;
   color: #c8d8f5;
@@ -140,7 +147,11 @@
 }
 
 /* Section wave dark mode overrides */
-[data-theme="dark"] .hero-shape svg path { fill: #0f1117 !important; }
+[data-theme="dark"] .hero-shape {
+  background: #1a2540;
+}
+[data-theme="dark"] .hero-shape svg path,
+[data-theme="dark"] .hero-shape .hero-shape-path-light { fill: #0f1117 !important; }
 [data-theme="dark"] .section-wave--to-sim svg path { fill: #131825 !important; }
 [data-theme="dark"] .section-wave--to-prova svg path { fill: #0f1117 !important; }
 [data-theme="dark"] .sim-wave-bottom path { fill: #0f1117 !important; }
@@ -354,7 +365,6 @@ header .container {
   border-radius: 4px;
 }
 
-/* Toggle inside nav: show only on desktop */
 .nav-item--toggle { display: none; }
 .mobile-dark-toggle { color: var(--royal-azul-escuro); }
 [data-theme="dark"] .mobile-dark-toggle { color: #f0d060; }
@@ -1044,7 +1054,7 @@ header .container {
 
 .opt-quiz-question-text {
   font-size: var(--size-4);
-  color: var(--white-2);
+  color: #e8f0ff;
   font-weight: var(--weight-600);
   margin-bottom: 16px;
   line-height: 1.5;
@@ -1060,25 +1070,25 @@ header .container {
 
 .opt-quiz-option {
   padding: 12px 14px;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.25);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s;
-  background: rgba(255,255,255,0.05);
-  color: var(--white-2);
+  background: rgba(255,255,255,0.08);
+  color: #e8f0ff;
   font-size: var(--size-5);
   text-align: left;
   line-height: 1.5;
 }
 
 .opt-quiz-option:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.55);
 }
 
-.opt-quiz-option.selected { border-color: var(--azul); background: rgba(15,82,186,0.2); }
-.opt-quiz-option.correct { border-color: var(--verde-claro); background: rgba(102,187,106,0.2); color: #a5d6a7; }
-.opt-quiz-option.incorrect { border-color: #ef5350; background: rgba(239,83,80,0.15); color: #ef9a9a; }
+.opt-quiz-option.selected { border-color: #6ea8fe; background: rgba(15,82,186,0.3); color: #e8f0ff; }
+.opt-quiz-option.correct { border-color: #4ade80; background: rgba(74,222,128,0.2); color: #bbf7d0; }
+.opt-quiz-option.incorrect { border-color: #f87171; background: rgba(248,113,113,0.18); color: #fecaca; }
 
 .opt-quiz-feedback,
 .opt-quiz-try-again {
@@ -1093,13 +1103,13 @@ header .container {
 }
 
 .opt-quiz-feedback {
-  background: rgba(102,187,106,0.15);
-  color: #a5d6a7;
+  background: rgba(74,222,128,0.15);
+  color: #bbf7d0;
 }
 
 .opt-quiz-try-again {
-  background: rgba(239,83,80,0.12);
-  color: #ef9a9a;
+  background: rgba(248,113,113,0.13);
+  color: #fecaca;
 }
 
 .opt-quiz-feedback-icon { 
@@ -1854,7 +1864,7 @@ footer { background: var(--white); }
         </div>
         <div class="hero-shape" aria-hidden="true">
           <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,40 C240,90 480,0 720,50 C960,100 1200,20 1440,60 L1440,90 L0,90 Z" fill="var(--white)"/>
+            <path class="hero-shape-path-light" d="M0,40 C240,90 480,0 720,50 C960,100 1200,20 1440,60 L1440,90 L0,90 Z" fill="var(--white)"/>
           </svg>
         </div>
       </section>
@@ -2914,10 +2924,8 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }
 
-  // Restore preference (padrão: tema claro)
   if (saved === 'dark') setTheme(true);
 
-  // Both toggle buttons fire the same action
   document.querySelectorAll('.dark-mode-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
       setTheme(html.getAttribute('data-theme') !== 'dark');
@@ -2925,12 +2933,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
-/* ── CLOSE BUTTON FOR MOBILE NAVBAR ── */
 document.getElementById('navbarCloseBtn')?.addEventListener('click', function() {
   document.querySelector('[data-navbar]')?.classList.remove('active');
 });
 
-/* Close mobile menu when a nav link is clicked */
 document.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
     const navbar = document.querySelector('[data-navbar]');
