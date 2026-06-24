@@ -55,7 +55,7 @@
   --transition: 0.25s ease-in-out;
 }
 
-/* ── DARK MODE ── */
+/* Modo escuro */
 [data-theme="dark"] {
   --white: #0f1117;
   --white-2: #1a1f2e;
@@ -146,7 +146,7 @@
   border-color: rgba(255,255,255,0.1);
 }
 
-/* Section wave dark mode overrides */
+/* Ondas de seção no modo escuro */
 [data-theme="dark"] .hero-shape {
   background: #1a2540;
 }
@@ -169,7 +169,7 @@
   color: #f5dfa0 !important;
 }
 
-/* Dark mode toggle button */
+/* Botão de alternar modo escuro */
 .dark-mode-toggle {
   background: none;
   border: none;
@@ -323,12 +323,12 @@ header .container {
 
 .hamburger-icon { display: block; }
 
-/* ── MOBILE NAV: dropdown simples ── */
+/* Nav mobile: dropdown */
 .navbar {
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 15px;
-  right: 15px;
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  right: 10px;
   background: var(--azul);
   max-height: 0;
   visibility: hidden;
@@ -365,6 +365,7 @@ header .container {
   border-radius: 4px;
 }
 
+/* Ícone de tema: só no desktop */
 .nav-item--toggle { display: none; }
 .mobile-dark-toggle { color: var(--royal-azul-escuro); }
 [data-theme="dark"] .mobile-dark-toggle { color: #f0d060; }
@@ -459,7 +460,7 @@ header .container {
   animation: dogBob 3s ease-in-out infinite;
 }
 
-/* Hide favicon image on mobile */
+/* Oculta imagem no mobile */
 @media (max-width: 767px) {
   .hero-img-wrap { display: none !important; }
   .hero-main { justify-content: center; }
@@ -489,7 +490,7 @@ header .container {
   height: auto;
 }
 
-/* section wave dividers */
+/* Divisores em onda entre seções */
 .section-wave {
   display: block;
   width: 100%;
@@ -1070,25 +1071,25 @@ header .container {
 
 .opt-quiz-option {
   padding: 12px 14px;
-  border: 2px solid rgba(255,255,255,0.25);
+  border: 2px solid rgba(255,255,255,0.45);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s;
-  background: rgba(255,255,255,0.08);
-  color: #e8f0ff;
+  background: rgba(255,255,255,0.13);
+  color: #ffffff;
   font-size: var(--size-5);
   text-align: left;
   line-height: 1.5;
 }
 
 .opt-quiz-option:hover {
-  background: rgba(255,255,255,0.14);
-  border-color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.8);
 }
 
-.opt-quiz-option.selected { border-color: #6ea8fe; background: rgba(15,82,186,0.3); color: #e8f0ff; }
-.opt-quiz-option.correct { border-color: #4ade80; background: rgba(74,222,128,0.2); color: #bbf7d0; }
-.opt-quiz-option.incorrect { border-color: #f87171; background: rgba(248,113,113,0.18); color: #fecaca; }
+.opt-quiz-option.selected { border-color: #90c0ff; background: rgba(15,82,186,0.5); color: #ffffff; }
+.opt-quiz-option.correct { border-color: #4ade80; background: rgba(74,222,128,0.35); color: #ffffff; }
+.opt-quiz-option.incorrect { border-color: #f87171; background: rgba(248,113,113,0.35); color: #ffffff; }
 
 .opt-quiz-feedback,
 .opt-quiz-try-again {
@@ -1103,13 +1104,15 @@ header .container {
 }
 
 .opt-quiz-feedback {
-  background: rgba(74,222,128,0.15);
-  color: #bbf7d0;
+  background: rgba(74,222,128,0.28);
+  color: #ffffff;
+  border: 1px solid #4ade80;
 }
 
 .opt-quiz-try-again {
-  background: rgba(248,113,113,0.13);
-  color: #fecaca;
+  background: rgba(248,113,113,0.28);
+  color: #ffffff;
+  border: 1px solid #f87171;
 }
 
 .opt-quiz-feedback-icon { 
@@ -1260,7 +1263,7 @@ footer { background: var(--white); }
   pointer-events: all;
 }
 
-/* ── MOBILE-FIRST CORRECTIONS ── */
+/* Ajustes mobile */
 @media (max-width: 480px) {
   :root {
     --size-1: 26px;
@@ -1283,7 +1286,7 @@ footer { background: var(--white); }
     font-size: 13px;
   }
 
-  /* Proof steps: shrink circle so text has room */
+  /* Passos da prova: círculo menor */
   .proof-step {
     gap: 12px;
   }
@@ -1299,7 +1302,7 @@ footer { background: var(--white); }
     left: 17px;
   }
 
-  /* Dog panel: give info text more room */
+  /* Painel do cachorro: mais espaço pro texto */
   .dog-info {
     flex: 1;
     min-width: 0;
@@ -1309,7 +1312,7 @@ footer { background: var(--white); }
     font-size: 11px;
   }
 
-  /* Stats grid stays 2-col on mobile */
+  /* Grid de stats: 2 colunas no mobile */
   .stats-grid {
     gap: 8px;
   }
@@ -1318,17 +1321,17 @@ footer { background: var(--white); }
     font-size: 16px;
   }
 
-  /* Slider ticks smaller */
+  /* Marcas do slider menores */
   .slider-ticks {
     font-size: 10px;
   }
 
-  /* Quiz card */
+  /* Card do quiz */
   .quiz-title {
     font-size: 20px;
   }
 
-  /* Section titles */
+  /* Títulos de seção */
   .conteudo .section-title {
     font-size: 20px;
     line-height: 1.5;
@@ -1338,13 +1341,13 @@ footer { background: var(--white); }
     font-size: 20px;
   }
 
-  /* Graph legend wraps naturally */
+  /* Legenda do gráfico quebra naturalmente */
   .graph-legend {
     gap: 8px;
     font-size: 10px;
   }
 
-  /* Derivative live badge */
+  /* Badge de derivada ao vivo */
   .derivative-live {
     font-size: 12px;
     padding: 5px 10px;
@@ -1399,7 +1402,7 @@ footer { background: var(--white); }
     gap: 24px;
   }
 
-  /* Restore wrappers on desktop */
+  /* Restaura wrappers no desktop */
   .sim-left, .sim-right {
     display: flex;
     flex-direction: column;
@@ -1442,7 +1445,7 @@ footer { background: var(--white); }
 
   .nav-item:not(:last-child) { border-bottom: none; }
 
-  /* Toggle item inline with nav links */
+  /* Ícone de tema alinhado com os links */
   .nav-item--toggle {
     display: flex;
     align-items: center;
@@ -1462,7 +1465,7 @@ footer { background: var(--white); }
     color: var(--azul);
   }
 
-  /* Dark mode: nav links legible on dark header */
+  /* Links do nav legíveis no modo escuro */
   [data-theme="dark"] .nav-link {
     color: #c8d8f5;
   }
@@ -1471,7 +1474,7 @@ footer { background: var(--white); }
     color: #fff;
   }
 
-  /* Toggle icon color on desktop */
+  /* Cor do ícone de tema no desktop */
   .dark-mode-toggle {
     color: var(--royal-azul-escuro);
     padding: 6px;
@@ -2912,7 +2915,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 'use strict';
 
-/* ── DARK MODE ── */
+/* Modo escuro */
 (function() {
   const html  = document.documentElement;
   const saved = localStorage.getItem('theme');
@@ -2924,8 +2927,10 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }
 
+  // Restaura preferência salva (padrão: claro)
   if (saved === 'dark') setTheme(true);
 
+  // Ambos os botões de tema disparam a mesma ação
   document.querySelectorAll('.dark-mode-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
       setTheme(html.getAttribute('data-theme') !== 'dark');
@@ -2933,16 +2938,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
-document.getElementById('navbarCloseBtn')?.addEventListener('click', function() {
-  document.querySelector('[data-navbar]')?.classList.remove('active');
-});
 
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    const navbar = document.querySelector('[data-navbar]');
-    if (navbar && window.innerWidth < 1024) navbar.classList.remove('active');
-  });
-});
 </script>
 </body>
 </html>
