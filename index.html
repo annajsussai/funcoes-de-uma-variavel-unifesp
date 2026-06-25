@@ -1598,7 +1598,8 @@ footer { background: var(--white); }
 
   .navbar-menu-btn { display: none; }
   #navCloseBtn { display: none !important; }
-  .mobile-dark-toggle { display: flex; }
+  .mobile-dark-toggle { display: none; }
+  .nav-item--toggle { display: flex; }
   .nav-overlay { display: none !important; }
   .navbar-drawer-header { display: none; }
 
@@ -2170,8 +2171,8 @@ footer { background: var(--white); }
             <div class="sim-left">
               <div class="canvas-wrapper enclosure-wrapper" style="position:relative">
                 <div class="canvas-label">Vista Aérea do Cercado</div>
-                <canvas id="enclosureCanvas" width="340" height="240"></canvas>
-                <div class="dog-panel" id="dogPanel" style="position:absolute;bottom:26px;right:26px;flex-direction:column;align-items:center;gap:4px;background:none;box-shadow:none;padding:0">
+                <canvas id="enclosureCanvas" width="440" height="320"></canvas>
+                <div class="dog-panel" id="dogPanel" style="position:absolute;top:50%;left:75%;transform:translate(-50%,-50%);width:22%;flex-direction:column;align-items:center;gap:4px;background:none;box-shadow:none;padding:0">
                   <div class="dog-css-wrapper" id="dogCssWrapper">
                     <div class="dog">
                       <div class="heart heart--1"></div><div class="heart heart--2"></div><div class="heart heart--3"></div><div class="heart heart--4"></div>
@@ -2633,10 +2634,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const y    = 10 - x;
     const maxD = Math.max(x, y);
-    const scale = Math.min((W - 80) / maxD, (H - 60) / maxD);
+    const DOG_SPACE = 110;
+    const scale = Math.min((W - 80 - DOG_SPACE) / maxD, (H - 60) / maxD);
     const pw   = x * scale;
     const ph   = y * scale;
-    const ox   = (W - pw) / 2;
+    const ox   = (W - DOG_SPACE - pw) / 2;
     const oy   = (H - ph) / 2;
 
     
@@ -2734,6 +2736,13 @@ document.addEventListener('DOMContentLoaded', function () {
     encCtx.font = 'bold 14px Poppins, system-ui';
     encCtx.textAlign = 'center';
     encCtx.fillText(area.toFixed(1) + ' m²', ox + pw / 2, oy + ph / 2 + 5);
+
+    // Position dog just outside the right edge of the enclosure
+    const dogPanel = document.getElementById('dogPanel');
+    if (dogPanel) {
+      const sX = (enclosureCanvas.clientWidth  || W) / W;
+      const sY = (enclosureCanvas.clientHeight || H) / H;
+    }
   }
 
   
