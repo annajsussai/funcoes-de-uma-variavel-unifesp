@@ -508,7 +508,11 @@ header .container {
   .hero-text { margin-inline: auto; }
 }
 
-.hero-content { flex: 1; min-width: 0; text-align: left; }
+.hero-content { flex: 1; min-width: 0; }
+
+@media (min-width: 768px) {
+  .hero-content { text-align: left; }
+}
 
 @keyframes dogBob {
   0%, 100% { transform: translateY(0px); }
