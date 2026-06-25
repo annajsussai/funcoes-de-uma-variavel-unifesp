@@ -1960,6 +1960,44 @@ footer { background: var(--white); }
   left: -7%; top: -18%;
 }
 
+/* ── Dog color protection in dark mode ── */
+[data-theme="dark"] .dog .body,
+[data-theme="dark"] .tail,
+[data-theme="dark"] .tail::before,
+[data-theme="dark"] .legs__front,
+[data-theme="dark"] .legs__back,
+[data-theme="dark"] .face::after,
+[data-theme="dark"] .face::before,
+[data-theme="dark"] .year--right { background-color: #f79e38 !important; }
+
+[data-theme="dark"] .year--left { background-color: #e99036 !important; }
+
+[data-theme="dark"] .cheast,
+[data-theme="dark"] .cheast::after,
+[data-theme="dark"] .cheast::before,
+[data-theme="dark"] .face,
+[data-theme="dark"] .nose { background-color: #ffffff !important; }
+
+[data-theme="dark"] .legs__front::after,
+[data-theme="dark"] .legs__back::after { background-color: #ffffff !important; }
+
+[data-theme="dark"] .eye,
+[data-theme="dark"] .nose::after { background-color: #000000 !important; }
+
+[data-theme="dark"] .mouth { border-color: #000000; }
+
+/* sad state overrides still apply in dark mode */
+[data-theme="dark"] #dogPanel.state-sad .dog .body,
+[data-theme="dark"] #dogPanel.state-sad .tail,
+[data-theme="dark"] #dogPanel.state-sad .legs__front,
+[data-theme="dark"] #dogPanel.state-sad .legs__back,
+[data-theme="dark"] #dogPanel.state-sad .cheast::after,
+[data-theme="dark"] #dogPanel.state-sad .cheast::before { background-color: #a0b4cc !important; }
+[data-theme="dark"] #dogPanel.state-sad .face::after,
+[data-theme="dark"] #dogPanel.state-sad .face::before   { background-color: #a0b4cc !important; }
+[data-theme="dark"] #dogPanel.state-sad .year--left  { background-color: #8aa0b8 !important; }
+[data-theme="dark"] #dogPanel.state-sad .year--right { background-color: #a0b4cc !important; }
+
 #dogPanel.state-sad .heart { animation-play-state: paused; opacity: 0 !important; }
 #dogPanel.state-sad .dog .body,
 #dogPanel.state-sad .tail,
@@ -2877,14 +2915,14 @@ document.addEventListener('DOMContentLoaded', function () {
     dogStateBadge.className = 'dog-state-badge';
 
     if (st === 'sad') {
-      dogStateBadge.textContent = 'Crítico';
+      dogStateBadge.textContent = 'Preocupante';
       dogStateBadge.classList.add('state-sad');
       if (dogStateDesc) dogStateDesc.textContent = `|A′(x)| elevado — área distante do máximo (${area.toFixed(1)}m²). Aproxime x de 5.`;
     } else if (st === 'ok') {
       dogStateBadge.textContent = 'Convergindo';
       if (dogStateDesc) dogStateDesc.textContent = `A′(x) se aproxima de zero. Continue ajustando! (${area.toFixed(1)}m²)`;
     } else {
-      dogStateBadge.textContent = 'Ótimo!';
+      dogStateBadge.textContent = 'Excelente!';
       dogStateBadge.classList.add('state-happy');
       if (dogStateDesc) dogStateDesc.textContent = `A′(x) ≈ 0 — máximo confirmado! A″(x)=−2<0 prova o máximo. Área: ${area.toFixed(1)}m².`;
     }
