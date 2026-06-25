@@ -339,8 +339,7 @@ header {
   top: 0;
   padding: 25px 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
+  background: #ffffff;
   border-bottom: 1px solid rgba(71, 115, 214, 0.12);
 }
 
@@ -1596,7 +1595,6 @@ footer { background: var(--white); }
 
   .container { max-width: 960px; }
 
-  .navbar-menu-btn { display: none; }
   #navCloseBtn { display: none !important; }
   .mobile-dark-toggle { display: none; }
   .nav-item--toggle { display: flex; }
@@ -2042,18 +2040,16 @@ footer { background: var(--white); }
         <img src="images/logo.png" alt="Logo" class="logo-img">
       </a>
       <div style="display:flex;align-items:center;gap:6px;">
-        <button class="dark-mode-toggle mobile-dark-toggle" id="darkModeToggleMobile" aria-label="Alternar modo noturno">
-          <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="iconSunAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        </button>
+
         <div class="navbar-wrapper">
           <button class="navbar-menu-btn" id="navToggleBtn" aria-label="Abrir menu">
             <span class="hamburger-icon">☰</span>
           </button>
-          <button class="navbar-menu-btn" id="navCloseBtn" aria-label="Fechar menu" style="display:none;font-size:22px;">✕</button>
+          <button class="navbar-menu-btn" id="navCloseBtn" aria-label="Fechar menu" style="display:none !important;font-size:22px;">✕</button>
           <nav class="navbar" id="mainNav">
             <div class="navbar-drawer-header">
               <span class="navbar-drawer-title">Menu</span>
+              <button class="navbar-close-btn" id="navCloseBtnDrawer" aria-label="Fechar menu">✕</button>
             </div>
             <ul class="navbar-list">
               <li class="nav-item"><a href="#home"       class="nav-link">Home</a></li>
@@ -2572,12 +2568,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const overlay = document.getElementById('navOverlay');
   const openBtn = document.getElementById('navToggleBtn');
   const closeBtn = document.getElementById('navCloseBtn');
+  const closeBtnDrawer = document.getElementById('navCloseBtnDrawer');
 
-  function openNav()  { navbar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; openBtn.style.display = 'none'; closeBtn.style.display = 'block'; }
-  function closeNav() { navbar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; openBtn.style.display = 'block'; closeBtn.style.display = 'none'; }
+  function openNav()  { navbar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; openBtn.style.display = 'none'; }
+  function closeNav() { navbar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; openBtn.style.display = 'block'; }
 
   openBtn?.addEventListener('click', openNav);
   closeBtn?.addEventListener('click', closeNav);
+  closeBtnDrawer?.addEventListener('click', closeNav);
   overlay?.addEventListener('click', closeNav);
 
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -2910,7 +2908,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!dogStateBadge) return;
 
     
-    if (dogPanel) dogPanel.className = 'dog-panel ' + (st === 'sad' ? 'state-sad' : st === 'ok' ? 'state-ok' : 'state-happy');
+    if (dogPanel) {
+      dogPanel.className = 'dog-panel ' + (st === 'sad' ? 'state-sad' : st === 'ok' ? 'state-ok' : 'state-happy');
+      dogPanel.style.left = st === 'happy' ? '85%' : '75%';
+    }
 
     dogStateBadge.className = 'dog-state-badge';
 
@@ -2922,7 +2923,7 @@ document.addEventListener('DOMContentLoaded', function () {
       dogStateBadge.textContent = 'Convergindo';
       if (dogStateDesc) dogStateDesc.textContent = `A′(x) se aproxima de zero. Continue ajustando! (${area.toFixed(1)}m²)`;
     } else {
-      dogStateBadge.textContent = 'Excelente!';
+      dogStateBadge.textContent = 'Esplêndido!';
       dogStateBadge.classList.add('state-happy');
       if (dogStateDesc) dogStateDesc.textContent = `A′(x) ≈ 0 — máximo confirmado! A″(x)=−2<0 prova o máximo. Área: ${area.toFixed(1)}m².`;
     }
@@ -3125,25 +3126,8 @@ document.addEventListener('DOMContentLoaded', function () {
 'use strict';
 
 (function() {
-  const html  = document.documentElement;
-  const saved = localStorage.getItem('theme');
-
-  function setTheme(dark) {
-    html.setAttribute('data-theme', dark ? 'dark' : 'light');
-    document.querySelectorAll('.iconMoonAll').forEach(el => el.style.display = dark ? 'none'  : 'block');
-    document.querySelectorAll('.iconSunAll').forEach(el  => el.style.display = dark ? 'block' : 'none');
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-  }
-
-  
-  if (saved === 'dark') setTheme(true); else setTheme(false);
-
-  
-  document.querySelectorAll('.dark-mode-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setTheme(html.getAttribute('data-theme') !== 'dark');
-    });
-  });
+  document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('theme', 'light');
 })();
 
 </script>
