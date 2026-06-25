@@ -316,63 +316,102 @@ header .container {
   align-items: center;
 }
 
+/* ── Hamburger btn ── */
 .navbar-menu-btn {
   font-size: 26px;
-  padding: 5px;
+  padding: 6px;
   color: var(--royal-azul-escuro);
+  line-height: 1;
+  z-index: 301;
+  position: relative;
 }
-
-.navbar-wrapper { position: relative; }
-
+[data-theme="dark"] .navbar-menu-btn { color: #c8d8f5; }
+.navbar-wrapper { position: static; }
 .hamburger-icon { display: block; }
 
+/* ── Overlay ── */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  right: 260px;
+  background: rgba(0,0,0,0.3);
+  z-index: 299;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.nav-overlay.active { display: block; opacity: 1; }
+
+/* ── Drawer ── */
 .navbar {
   position: fixed;
-  top: 70px;
-  left: 10px;
-  right: 10px;
-  background: var(--azul);
-  max-height: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s;
-  opacity: 0;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100dvh;
+  background: #fff;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+  transition: right 0.3s cubic-bezier(.4,0,.2,1);
   overflow: hidden;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-  z-index: 200;
 }
+.navbar.active { right: 0; }
+[data-theme="dark"] .navbar { background: #1a1f2e; }
 
-.navbar.active {
-  visibility: visible;
-  pointer-events: all;
-  max-height: 400px;
-  opacity: 1;
-}
-
-.navbar-list { padding: 10px; }
-
-.nav-item:not(:last-child) {
-  border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
-}
-
-.nav-link {
-  font-size: var(--size-5);
-  color: var(--white);
-  font-weight: var(--weight-600);
-  padding: 13px 10px;
+/* drawer header */
+.navbar-drawer-header {
   display: flex;
   align-items: center;
-  gap: 6px;
-  border-radius: 4px;
+  justify-content: space-between;
+  padding: 28px 20px 20px;
+  border-bottom: 1px solid rgba(71,115,214,0.15);
 }
+.navbar-drawer-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--azul);
+}
+.navbar-close-btn {
+  font-size: 22px;
+  color: var(--cinza03);
+  padding: 2px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: background 0.2s;
+}
+.navbar-close-btn:hover { background: rgba(71,115,214,0.1); }
+
+/* list */
+.navbar-list { padding: 12px 12px; flex: 1; }
+.nav-item:not(:last-child) { margin-bottom: 2px; }
+.nav-link {
+  font-size: 15px;
+  color: var(--royal-azul-escuro);
+  font-weight: 600;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  transition: background 0.18s, color 0.18s;
+}
+.nav-link:hover { background: rgba(71,115,214,0.1); color: var(--azul); }
+[data-theme="dark"] .nav-link { color: #c8d8f5; }
+[data-theme="dark"] .nav-link:hover { background: rgba(71,115,214,0.2); color: #7eb3ff; }
+
+/* icons before each link */
 
 .nav-item--toggle { display: none; }
 .mobile-dark-toggle { color: var(--royal-azul-escuro); }
 [data-theme="dark"] .mobile-dark-toggle { color: #f0d060; }
-[data-theme="dark"] .navbar-menu-btn { color: #c8d8f5; }
-
-.nav-link:hover { background: hsla(0, 0%, 100%, 0.15); }
 
 .hero {
   position: relative;
@@ -1909,35 +1948,34 @@ footer { background: var(--white); }
 <body id="top">
 
   
+  <!-- overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
   <header>
     <div class="container">
       <a href="index.html" class="logo">
         <img src="images/logo.png" alt="Logo" class="logo-img">
       </a>
-      <div style="display:flex;align-items:center;gap:4px;">
-        
+      <div style="display:flex;align-items:center;gap:6px;">
         <button class="dark-mode-toggle mobile-dark-toggle" id="darkModeToggleMobile" aria-label="Alternar modo noturno">
           <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="iconSunAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
         <div class="navbar-wrapper">
-          <button class="navbar-menu-btn" data-navbar-toggle-btn aria-label="Abrir menu">
+          <button class="navbar-menu-btn" id="navToggleBtn" aria-label="Abrir menu">
             <span class="hamburger-icon">☰</span>
           </button>
-          <nav class="navbar" data-navbar>
+          <button class="navbar-menu-btn" id="navCloseBtn" aria-label="Fechar menu" style="display:none;font-size:22px;">✕</button>
+          <nav class="navbar" id="mainNav">
+            <div class="navbar-drawer-header">
+              <span class="navbar-drawer-title">Menu</span>
+            </div>
             <ul class="navbar-list">
-              <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+              <li class="nav-item"><a href="#home"       class="nav-link">Home</a></li>
               <li class="nav-item"><a href="#introducao" class="nav-link">Introdução</a></li>
-              <li class="nav-item"><a href="#simulador" class="nav-link">Simulador</a></li>
-              <li class="nav-item"><a href="#prova" class="nav-link">Resolução</a></li>
-              <li class="nav-item"><a href="#quiz" class="nav-link">Quiz</a></li>
-              
-              <li class="nav-item nav-item--toggle">
-                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo noturno" title="Modo noturno">
-                  <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                  <svg class="iconSunAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                </button>
-              </li>
+              <li class="nav-item"><a href="#simulador"  class="nav-link">Simulador</a></li>
+              <li class="nav-item"><a href="#prova"      class="nav-link">Resolução</a></li>
+              <li class="nav-item"><a href="#quiz"       class="nav-link">Quiz</a></li>
             </ul>
           </nav>
         </div>
@@ -2445,18 +2483,20 @@ footer { background: var(--white); }
 document.addEventListener('DOMContentLoaded', function () {
 
   
-  const navbar = document.querySelector('[data-navbar]');
-  const menuToggleBtn = document.querySelector('[data-navbar-toggle-btn]');
+  const navbar  = document.getElementById('mainNav');
+  const overlay = document.getElementById('navOverlay');
+  const openBtn = document.getElementById('navToggleBtn');
+  const closeBtn = document.getElementById('navCloseBtn');
 
-  menuToggleBtn?.addEventListener('click', () => {
-    navbar?.classList.toggle('active');
-  });
+  function openNav()  { navbar.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; openBtn.style.display = 'none'; closeBtn.style.display = 'block'; }
+  function closeNav() { navbar.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; openBtn.style.display = 'block'; closeBtn.style.display = 'none'; }
 
-  
+  openBtn?.addEventListener('click', openNav);
+  closeBtn?.addEventListener('click', closeNav);
+  overlay?.addEventListener('click', closeNav);
+
   document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navbar?.classList.remove('active');
-    });
+    link.addEventListener('click', closeNav);
   });
 
   
