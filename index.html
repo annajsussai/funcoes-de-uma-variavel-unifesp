@@ -55,7 +55,6 @@
   --transition: 0.25s ease-in-out;
 }
 
-/* Modo escuro */
 [data-theme="dark"] {
   --white: #0f1117;
   --white-2: #1a1f2e;
@@ -146,7 +145,6 @@
   border-color: rgba(255,255,255,0.1);
 }
 
-/* Ondas de seção no modo escuro */
 [data-theme="dark"] .hero-shape {
   background: #1a2540;
 }
@@ -169,7 +167,6 @@
   color: #f5dfa0 !important;
 }
 
-/* Botão de alternar modo escuro */
 .dark-mode-toggle {
   background: none;
   border: none;
@@ -323,7 +320,6 @@ header .container {
 
 .hamburger-icon { display: block; }
 
-/* Nav mobile: dropdown */
 .navbar {
   position: fixed;
   top: 70px;
@@ -365,7 +361,6 @@ header .container {
   border-radius: 4px;
 }
 
-/* Ícone de tema: só no desktop */
 .nav-item--toggle { display: none; }
 .mobile-dark-toggle { color: var(--royal-azul-escuro); }
 [data-theme="dark"] .mobile-dark-toggle { color: #f0d060; }
@@ -460,7 +455,6 @@ header .container {
   animation: dogBob 3s ease-in-out infinite;
 }
 
-/* Oculta imagem no mobile */
 @media (max-width: 767px) {
   .hero-img-wrap { display: none !important; }
   .hero-main { justify-content: center; }
@@ -490,7 +484,6 @@ header .container {
   height: auto;
 }
 
-/* Divisores em onda entre seções */
 .section-wave {
   display: block;
   width: 100%;
@@ -702,7 +695,6 @@ header .container {
   margin-top: 16px;
 }
 
-/* Mobile: slider → [cercado | gráfico] → cachorro → stats */
 @media (max-width: 767px) {
   .simulador-grid {
     flex-direction: row;
@@ -718,8 +710,7 @@ header .container {
     align-items: flex-start;
   }
   .sim-left .enclosure-wrapper { flex: 1 1 65%; min-width: 0; }
-  .sim-left .dog-panel { flex: 1 1 30%; min-width: 0; max-width: 35%; }
-  .sim-left .dog-panel { flex-direction: column; align-items: center; padding: 8px; }
+  .sim-left .dog-panel { position: static; flex: 1 1 30%; min-width: 0; max-width: 35%; flex-direction: column; align-items: center; padding: 8px; justify-content: center; }
   .sim-left .dog-css-wrapper { width: clamp(60px, 16vw, 90px); height: clamp(48px, 13vw, 72px); }
   .sim-left .dog-info { text-align: center; }
   .sim-left .dog-state-desc { display: none; }
@@ -737,8 +728,9 @@ header .container {
 
   .canvas-label { font-size: 10px; margin-bottom: 2px; }
   .graph-legend { display: none; }
+  .graph-wrapper { padding: 10px; margin-top: 8px; }
 
-  /* dog standalone abaixo fica compacto */
+  
   .sim-stats-full { margin-top: 8px; }
   .sim-stats-full .stat-value { font-size: 16px; }
   .sim-stats-full .stat-label { font-size: 10px; }
@@ -752,11 +744,16 @@ header .container {
   font-weight: var(--weight-600);
   color: var(--royal-azul-escuro);
   margin-bottom: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .slider-value {
   color: var(--azul);
-  font-size: 20px;
+  font-size: inherit;
   font-weight: var(--weight-700);
 }
 
@@ -1287,7 +1284,6 @@ footer { background: var(--white); }
   pointer-events: all;
 }
 
-/* Ajustes mobile */
 @media (max-width: 480px) {
   :root {
     --size-1: 26px;
@@ -1310,7 +1306,7 @@ footer { background: var(--white); }
     font-size: 13px;
   }
 
-  /* Passos da prova: círculo menor */
+  
   .proof-step {
     gap: 12px;
   }
@@ -1326,7 +1322,7 @@ footer { background: var(--white); }
     left: 17px;
   }
 
-  /* Painel do cachorro: mais espaço pro texto */
+  
   .dog-info {
     flex: 1;
     min-width: 0;
@@ -1336,7 +1332,7 @@ footer { background: var(--white); }
     font-size: 11px;
   }
 
-  /* Grid de stats: 2 colunas no mobile */
+  
   .stats-grid {
     gap: 8px;
   }
@@ -1345,17 +1341,17 @@ footer { background: var(--white); }
     font-size: 16px;
   }
 
-  /* Marcas do slider menores */
+  
   .slider-ticks {
     font-size: 10px;
   }
 
-  /* Card do quiz */
+  
   .quiz-title {
     font-size: 20px;
   }
 
-  /* Títulos de seção */
+  
   .conteudo .section-title {
     font-size: 20px;
     line-height: 1.5;
@@ -1365,13 +1361,13 @@ footer { background: var(--white); }
     font-size: 20px;
   }
 
-  /* Legenda do gráfico quebra naturalmente */
+  
   .graph-legend {
     gap: 8px;
     font-size: 10px;
   }
 
-  /* Badge de derivada ao vivo */
+  
   .derivative-live {
     font-size: 12px;
     padding: 5px 10px;
@@ -1399,7 +1395,6 @@ footer { background: var(--white); }
   }
 }
 
-
 @media (min-width: 560px) {
   .container { max-width: 550px; margin-inline: auto; }
 
@@ -1422,23 +1417,35 @@ footer { background: var(--white); }
 
   .simulador-grid {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 24px;
   }
 
-  /* Restaura wrappers no desktop */
+  
   .sim-left, .sim-right {
     display: flex;
     flex-direction: column;
     flex: 1;
     width: auto;
     gap: 16px;
+    align-self: stretch;
+  }
+
+  .sim-right .graph-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sim-right .graph-wrapper canvas {
+    flex: 1;
+    width: 100% !important;
+    height: auto !important;
   }
 
   .sim-right { margin-top: 0; }
 }
 
-/* Stats full-width abaixo do simulador no desktop */
 .sim-stats-full {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -1467,8 +1474,6 @@ footer { background: var(--white); }
   }
 }
 
-
-/* Mobile: stats voltam a 2 colunas */
 @media (max-width: 767px) {
   .sim-stats-full {
     grid-template-columns: 1fr 1fr;
@@ -1530,7 +1535,7 @@ footer { background: var(--white); }
 
   .nav-item:not(:last-child) { border-bottom: none; }
 
-  /* Ícone de tema alinhado com os links */
+  
   .nav-item--toggle {
     display: flex;
     align-items: center;
@@ -1550,7 +1555,7 @@ footer { background: var(--white); }
     color: var(--azul);
   }
 
-  /* Links do nav legíveis no modo escuro */
+  
   [data-theme="dark"] .nav-link {
     color: #c8d8f5;
   }
@@ -1559,7 +1564,7 @@ footer { background: var(--white); }
     color: #fff;
   }
 
-  /* Cor do ícone de tema no desktop */
+  
   .dark-mode-toggle {
     color: var(--royal-azul-escuro);
     padding: 6px;
@@ -1900,7 +1905,7 @@ footer { background: var(--white); }
         <img src="images/logo.png" alt="Logo" class="logo-img">
       </a>
       <div style="display:flex;align-items:center;gap:4px;">
-        <!-- Ícone de tema: visível só no mobile (fora do nav) -->
+        
         <button class="dark-mode-toggle mobile-dark-toggle" id="darkModeToggleMobile" aria-label="Alternar modo noturno">
           <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="iconSunAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -1916,7 +1921,7 @@ footer { background: var(--white); }
               <li class="nav-item"><a href="#simulador" class="nav-link">Simulador</a></li>
               <li class="nav-item"><a href="#prova" class="nav-link">Resolução</a></li>
               <li class="nav-item"><a href="#quiz" class="nav-link">Quiz</a></li>
-              <!-- Toggle: visível só no desktop (dentro do nav) -->
+              
               <li class="nav-item nav-item--toggle">
                 <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo noturno" title="Modo noturno">
                   <svg class="iconMoonAll" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -2015,7 +2020,7 @@ footer { background: var(--white); }
       </section>
 
       
-      <!-- Wave divider before simulador -->
+      
       <div class="section-wave section-wave--to-sim" aria-hidden="true">
         <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0,20 C360,70 720,0 1080,40 C1260,60 1380,10 1440,30 L1440,70 L0,70 Z" fill="var(--verde-bg)"/>
@@ -2053,12 +2058,10 @@ footer { background: var(--white); }
             </div>
           </div>
 
-          <!-- Mobile: tudo em coluna única na ordem certa -->
-          <!-- Slider: full width sempre -->
+          
+          
           <div class="slider-panel sim-slider-full" style="margin-bottom:16px">
-            <label class="slider-label" for="widthSlider">
-              Largura: <span id="sliderValueDisplay" class="slider-value">5.0</span>m
-            </label>
+            <label class="slider-label" for="widthSlider">Largura: <span id="sliderValueDisplay" class="slider-value">5.0</span> m</label>
             <input type="range" id="widthSlider" min="0.5" max="9.5" step="0.1" value="5.0" class="custom-slider">
             <div class="slider-ticks">
               <span>0.5m</span>
@@ -2067,7 +2070,7 @@ footer { background: var(--white); }
             </div>
           </div>
 
-          <!-- Linha central: cercado + gráfico lado a lado -->
+          
           <div class="simulador-grid">
 
             <div class="sim-left">
@@ -2093,7 +2096,7 @@ footer { background: var(--white); }
             <div class="sim-right">
               <div class="canvas-wrapper graph-wrapper">
                 <div class="canvas-label">Gráfico de A(x) = x(10 − x)</div>
-                <canvas id="graphCanvas" width="340" height="260"></canvas>
+                <canvas id="graphCanvas" width="680" height="400"></canvas>
                 <div class="graph-legend">
                   <span class="legend-curve">— Curva A(x)</span>
                   <span class="legend-tangent">— Reta Tangente (A'(x))</span>
@@ -2104,7 +2107,7 @@ footer { background: var(--white); }
 
           </div>
 
-          <!-- Stats: full width abaixo -->
+          
           <div class="stats-grid sim-stats-full" style="margin-top:16px">
             <div class="stat-card">
               <div class="stat-label">Largura (x)</div>
@@ -2128,7 +2131,7 @@ footer { background: var(--white); }
       </section>
 
       
-      <!-- Wave divider before resolução -->
+      
       <div class="section-wave section-wave--to-prova" aria-hidden="true">
         <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0,35 C300,0 600,65 900,30 C1100,10 1300,55 1440,25 L1440,70 L0,70 Z" fill="var(--white)"/>
@@ -2645,7 +2648,7 @@ document.addEventListener('DOMContentLoaded', function () {
     graphCtx.clearRect(0, 0, W, H);
     const d = dark();
 
-    const pad = { l: 46, r: 22, t: 22, b: 38 };
+    const pad = { l: 92, r: 44, t: 44, b: 76 };
     const cw  = W - pad.l - pad.r;
     const ch  = H - pad.t - pad.b;
     const xMin = 0, xMax = 10, yMin = -2, yMax = 28;
@@ -2679,14 +2682,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
     graphCtx.fillStyle = d ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)';
-    graphCtx.font = '10px Poppins, system-ui';
+    graphCtx.font = '20px Poppins, system-ui';
     graphCtx.textAlign = 'right';
-    [0, 5, 10, 15, 20, 25].forEach(yg => graphCtx.fillText(yg, pad.l - 6, py(yg) + 3));
+    [0, 5, 10, 15, 20, 25].forEach(yg => graphCtx.fillText(yg, pad.l - 12, py(yg) + 6));
     graphCtx.textAlign = 'center';
-    [0, 2, 4, 6, 8, 10].forEach(xg => graphCtx.fillText(xg, px(xg), pad.t + ch + 14));
-    graphCtx.fillText('x (m)', pad.l + cw / 2, H - 4);
+    [0, 2, 4, 6, 8, 10].forEach(xg => graphCtx.fillText(xg, px(xg), pad.t + ch + 28));
+    graphCtx.fillText('x (m)', pad.l + cw / 2, H - 8);
     graphCtx.save();
-    graphCtx.translate(12, pad.t + ch / 2);
+    graphCtx.translate(24, pad.t + ch / 2);
     graphCtx.rotate(-Math.PI / 2);
     graphCtx.fillText('A(x) m²', 0, 0);
     graphCtx.restore();
@@ -2721,10 +2724,10 @@ document.addEventListener('DOMContentLoaded', function () {
     graphCtx.stroke(); graphCtx.setLineDash([]);
 
     
-    const lx = px(xv) + (xv < 6 ? 8 : -70);
-    const ly = Math.max(pad.t + 12, py(av) - 12);
+    const lx = px(xv) + (xv < 6 ? 16 : -140);
+    const ly = Math.max(pad.t + 24, py(av) + 28);
     graphCtx.fillStyle = d ? '#5B8DEF' : '#B45309';
-    graphCtx.font = '10px Poppins, system-ui'; graphCtx.textAlign = 'left';
+    graphCtx.font = '20px Poppins, system-ui'; graphCtx.textAlign = 'left';
     graphCtx.fillText("A′(x) = " + slope.toFixed(1), lx, ly);
 
     
@@ -2746,8 +2749,8 @@ document.addEventListener('DOMContentLoaded', function () {
     graphCtx.beginPath(); graphCtx.arc(px(5), py(25), 5, 0, Math.PI * 2);
     graphCtx.fill(); graphCtx.stroke();
     graphCtx.fillStyle = d ? '#6e95e8' : '#4773d6';
-    graphCtx.font = '10px Poppins, system-ui'; graphCtx.textAlign = 'center';
-    graphCtx.fillText('máx (5, 25)', px(5), py(25) - 10);
+    graphCtx.font = '20px Poppins, system-ui'; graphCtx.textAlign = 'center';
+    graphCtx.fillText('máx (5, 25)', px(5) - 60, py(25) - 14);
 
     
     graphCtx.fillStyle   = '#FBBF24';
@@ -2978,7 +2981,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <script>
 'use strict';
 
-/* Modo escuro */
 (function() {
   const html  = document.documentElement;
   const saved = localStorage.getItem('theme');
@@ -2990,17 +2992,16 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('theme', dark ? 'dark' : 'light');
   }
 
-  // Restaura preferência salva (padrão: claro)
+  
   if (saved === 'dark') setTheme(true);
 
-  // Ambos os botões de tema disparam a mesma ação
+  
   document.querySelectorAll('.dark-mode-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
       setTheme(html.getAttribute('data-theme') !== 'dark');
     });
   });
 })();
-
 
 </script>
 </body>
