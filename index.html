@@ -2204,11 +2204,11 @@ footer { background: var(--white); }
           <div class="simulador-grid">
 
             <div class="sim-left">
-              <div class="canvas-wrapper enclosure-wrapper" style="position:relative; overflow:hidden;">
+              <div class="canvas-wrapper enclosure-wrapper" style="position:relative;">
                 <div class="canvas-label">Vista Aérea do Cercado</div>
-                <canvas id="enclosureCanvas" width="440" height="320"></canvas>
-                <div class="dog-panel" id="dogPanel" style="position:absolute;top:50%;right:0;transform:translateY(-50%);width:28%;flex-direction:column;align-items:center;gap:4px;background:none;box-shadow:none;padding:4px 6px 4px 0;">
-                  <div class="dog-css-wrapper" id="dogCssWrapper">
+                <canvas id="enclosureCanvas" width="440" height="360"></canvas>
+                <div class="dog-panel" id="dogPanel" style="position:absolute;top:62%;right:0;transform:translateY(-50%);width:30%;flex-direction:column;align-items:center;gap:6px;background:none;box-shadow:none;padding:4px 8px 4px 0;">
+                  <div class="dog-css-wrapper" id="dogCssWrapper" style="width:clamp(70px,18vw,110px);height:clamp(56px,14vw,88px);">
                     <div class="dog">
                       <div class="heart heart--1"></div><div class="heart heart--2"></div><div class="heart heart--3"></div><div class="heart heart--4"></div>
                       <div class="head"><div class="year year--left"></div><div class="year year--right"></div><div class="nose"></div><div class="face"><div class="eye eye--left"></div><div class="eye eye--right"></div><div class="mouth"></div></div></div>
@@ -2217,7 +2217,7 @@ footer { background: var(--white); }
                   </div>
                   <div class="dog-info" style="text-align:center">
                     <div class="dog-state-badge" id="dogStateBadge">Confortável</div>
-                    <div class="dog-efficiency" id="dogEfficiency" style="margin-top:2px">Eficiência: 100%</div>
+                    <div class="dog-efficiency" id="dogEfficiency" style="margin-top:4px;font-size:11px;">Eficiência: 100%</div>
                   </div>
                 </div>
               </div>
