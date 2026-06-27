@@ -787,15 +787,15 @@ header .container {
   .sim-left {
     flex: 1 1 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 8px;
-    align-items: flex-start;
+    align-items: stretch;
   }
-  .sim-left .enclosure-wrapper { flex: 1 1 65%; min-width: 0; }
-  .sim-left .dog-panel { position: static; flex: 1 1 30%; min-width: 0; max-width: 35%; flex-direction: column; align-items: center; padding: 8px; justify-content: center; }
-  .sim-left .dog-css-wrapper { width: clamp(60px, 16vw, 90px); height: clamp(48px, 13vw, 72px); }
-  .sim-left .dog-info { text-align: center; }
-  .sim-left .dog-state-desc { display: none; }
+  .sim-left .enclosure-wrapper { width: 100%; min-width: 0; }
+  .sim-left .dog-panel { position: static; width: 100%; min-width: 0; max-width: 100%; flex-direction: row; align-items: center; padding: 12px; justify-content: flex-start; }
+  .sim-left .dog-css-wrapper { width: clamp(60px, 16vw, 90px); height: clamp(48px, 13vw, 72px); flex-shrink: 0; }
+  .sim-left .dog-info { text-align: left; }
+  .sim-left .dog-state-desc { display: block; }
   .sim-right {
     flex: 1 1 100%;
     min-width: 0;
