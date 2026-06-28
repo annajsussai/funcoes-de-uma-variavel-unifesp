@@ -1943,11 +1943,6 @@ footer { background: var(--white); }
   .conteudo .section-text {
     font-size: 14px;
     line-height: 1.65;
-    
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     margin-bottom: 20px;
   }
 
@@ -2392,13 +2387,454 @@ footer { background: var(--white); }
 #dogPanel.state-ok .heart--3,
 #dogPanel.state-ok .heart--4 { animation-play-state: paused; opacity: 0 !important; }
 
+/* ============================================================
+   MOBILE-FIRST ENHANCEMENTS
+   ============================================================ */
+
+/* --- Bottom Navigation Bar (mobile only) --- */
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: #fff;
+    border-top: 1px solid rgba(71,115,214,0.15);
+    box-shadow: 0 -4px 20px rgba(10,35,66,0.10);
+    padding: 0;
+    height: 60px;
+    align-items: stretch;
+    justify-content: space-around;
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: var(--cinza04);
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 2px 6px;
+    transition: color 0.2s, background 0.2s;
+    border-radius: 0;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+  }
+
+  .bottom-nav-item svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .bottom-nav-item:hover,
+  .bottom-nav-item.active {
+    color: var(--azul);
+    background: rgba(15,82,186,0.05);
+  }
+
+  /* Offset sections so they clear the bottom nav */
+  main { padding-bottom: 60px; }
+  footer { padding-bottom: 60px; }
+
+  /* Hide hamburger menu button on mobile — bottom nav replaces it */
+  .navbar-menu-btn { display: none !important; }
+  .nav-overlay { display: none !important; }
+
+  /* Keep the drawer for potential future desktop use, hide on mobile */
+  .navbar {
+    right: -280px !important;
+  }
+}
+
+/* --- Header polish for mobile --- */
+@media (max-width: 1023px) {
+  header {
+    padding: 12px 0;
+    box-shadow: 0 1px 0 rgba(71,115,214,0.10);
+  }
+
+  .logo-img {
+    height: 38px !important;
+  }
+}
+
+/* --- Hero: mobile CTA larger + breathing room --- */
+@media (max-width: 639px) {
+  .hero {
+    padding: 36px 0 52px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    padding: 4px 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 8vw, 40px);
+    margin-bottom: 14px;
+  }
+
+  .hero-text {
+    font-size: 14.5px;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  /* Thumb-friendly CTA button */
+  .btn {
+    min-height: 52px;
+    padding: 14px 28px;
+    font-size: 14px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+  }
+
+  .hero .btn.btn-primary {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* --- Collapsibles: taller tap targets --- */
+.collapsible {
+  min-height: 52px;
+  touch-action: manipulation;
+}
+
+/* --- Section titles: tighter on mobile --- */
+@media (max-width: 639px) {
+  .conteudo { padding: 36px 0; }
+  .conteudo .section-title { font-size: clamp(20px, 6vw, 26px); }
+}
+
+/* --- Quiz options: bigger tap area --- */
+@media (max-width: 639px) {
+  .opt-quiz-option {
+    padding: 14px 16px;
+    font-size: 14px;
+    min-height: 52px;
+    border-radius: 10px;
+  }
+
+  .opt-quiz-navigation .btn {
+    min-height: 52px;
+    flex: 1;
+    padding: 14px 16px;
+  }
+
+  .opt-quiz-navigation {
+    gap: 8px;
+  }
+}
+
+/* --- Slider: bigger touch area --- */
+@media (max-width: 639px) {
+  .custom-slider {
+    height: 6px;
+  }
+
+  .custom-slider::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  .custom-slider::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  .slider-panel {
+    padding: 16px;
+    background: var(--white-2);
+    border-radius: 12px;
+  }
+
+  .slider-label {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+}
+
+/* --- Stat cards: readable values --- */
+@media (max-width: 639px) {
+  .stat-card {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+}
+
+/* --- Intro cards: hidden on mobile --- */
+@media (max-width: 639px) {
+  .intro-cards {
+    display: none;
+  }
+}
+
+/* --- Proof steps: cleaner mobile layout --- */
+@media (max-width: 639px) {
+  .proof-step {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(71,115,214,0.08);
+  }
+
+  .proof-step:last-child {
+    border-bottom: none;
+  }
+}
+
+/* --- go-top button: doesn't overlap bottom nav --- */
+@media (max-width: 1023px) {
+  .go-top {
+    bottom: 76px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+/* --- Problemas cards: comfortable on single column --- */
+@media (max-width: 639px) {
+  .prob-card {
+    padding: 20px 16px;
+  }
+
+  .prob-card-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* --- Medias section cards --- */
+@media (max-width: 639px) {
+  .medias-formula-card {
+    padding: 28px 20px;
+  }
+
+  .medias-prop-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 16px;
+  }
+
+  .medias-prop-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+}
+
+/* --- Smooth focus indicators for accessibility --- */
+a:focus-visible,
+button:focus-visible,
+.opt-quiz-option:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* --- Touch momentum scrolling --- */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* --- Active states for touch feedback --- */
+@media (hover: none) {
+  .btn:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+
+  .opt-quiz-option:active {
+    background: rgba(15,82,186,0.12);
+    border-color: rgba(15,82,186,0.5);
+  }
+
+  .collapsible:active {
+    opacity: 0.85;
+  }
+
+  .bottom-nav-item:active {
+    color: var(--azul);
+    background: rgba(15,82,186,0.08);
+  }
+}
+
+/* --- Prevent layout overflow on very small screens --- */
+@media (max-width: 360px) {
+  .prob-legend {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .prob-badge {
+    font-size: 9px;
+  }
+}
+
+/* --- Section progress pill (mobile UX cue) --- */
+.section-progress-pill {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .section-progress-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(15,82,186,0.08);
+    color: var(--azul);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+/* --- Swipe hint for simulator on mobile --- */
+@media (max-width: 639px) {
+  .simulador-section {
+    padding: 36px 0 40px;
+  }
+
+  .simulador-subtitle {
+    font-size: 14px;
+  }
+
+  .sim-explainer {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .sim-explainer-item {
+    font-size: 13px;
+    padding: 14px 13px;
+    border-radius: 10px;
+  }
+}
+
+/* --- Quiz section padding for bottom nav --- */
+@media (max-width: 1023px) {
+  .quiz {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* --- Sim How-to Grid (inside collapsible) --- */
+.sim-how-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 20px;
+}
+
+@media (max-width: 500px) {
+  .sim-how-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 10px;
+  }
+}
+
+.sim-how-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--white-2);
+  border-radius: 12px;
+  padding: 14px 14px;
+}
+
+.sim-how-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--royal-azul-escuro);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sim-how-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.sim-how-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--royal-azul-escuro);
+  margin-bottom: 4px;
+}
+
+.sim-how-text {
+  font-size: 12px;
+  color: var(--cinza03);
+  line-height: 1.6;
+}
 </style>
 </head>
 
 <body id="top">
 
-  
-  
+  <!-- Bottom Navigation Bar (mobile) -->
+  <nav class="bottom-nav" aria-label="Navegação principal">
+    <a href="#home" class="bottom-nav-item active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Home
+    </a>
+    <a href="#introducao" class="bottom-nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Intro
+    </a>
+    <a href="#simulador" class="bottom-nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="10" cy="6" r="2" fill="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="16" cy="12" r="2" fill="currentColor"/></svg>
+      Simulador
+    </a>
+    <a href="#prova" class="bottom-nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+      Resolução
+    </a>
+    <a href="#quiz" class="bottom-nav-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Quiz
+    </a>
+  </nav>
+
   <div class="nav-overlay" id="navOverlay"></div>
 
   <header>
@@ -2463,6 +2899,10 @@ footer { background: var(--white); }
       
       <section class="conteudo" id="introducao">
         <div class="container">
+          <div class="section-progress-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Introdução
+          </div>
           <h2 class="h2 section-title">O Que São Problemas de Otimização?</h2>
           <p class="section-text">
             Situações em que queremos encontrar o <strong>melhor valor possível</strong> de uma quantidade 
@@ -2553,32 +2993,40 @@ footer { background: var(--white); }
 
       <section class="simulador-section" id="simulador">
         <div class="container">
-          <h2 class="h2 section-title simulador-title">O Simulador Interativo</h2>
-          <p class="section-text simulador-subtitle">
-            Arraste o controle deslizante para alterar a largura $x$ do cercado e observe 
-            como a área, o gráfico e o cachorrinho reagem em tempo real.
+          <div class="section-progress-pill" style="justify-content:center;display:flex;width:fit-content;margin-inline:auto;margin-bottom:12px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="10" cy="6" r="2" fill="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
+            Simulador Interativo
+          </div>
+          <h2 class="h2 section-title simulador-title" style="text-align:center;">Explore o Problema</h2>
+          <p class="section-text simulador-subtitle" style="text-align:center;">
+            Você tem <strong>20 metros de cerca</strong> e quer construir um cercado retangular para o cachorro Bob.
+            Como distribuir esse perímetro para obter a <strong>maior área possível</strong>?
           </p>
 
-          <div class="sim-explainer">
-            <div class="sim-explainer-item">
-              <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-              <div><strong>O problema</strong> — Você tem 20 metros de cerca e quer construir um cercado retangular. Como distribuir esse perímetro para obter a <em>maior área possível</em>?</div>
-            </div>
-            <div class="sim-explainer-item">
-              <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="10" cy="6" r="2" fill="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="16" cy="12" r="2" fill="currentColor"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="18" r="2" fill="currentColor"/></svg></span>
-              <div><strong>O controle deslizante</strong> — Arraste para escolher a largura $x$ (de 0,5 m a 9,5 m). O comprimento $y$ é calculado automaticamente como $y = 10 - x$, pois $2x + 2y = 20$.</div>
-            </div>
-            <div class="sim-explainer-item">
-              <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 20 3 4 21 20 3 20"/></svg></span>
-              <div><strong>Vista aérea</strong> — O retângulo mostra visualmente como o cercado muda de forma — mais largo e achatado ou mais estreito e comprido — conforme você ajusta $x$.</div>
-            </div>
-            <div class="sim-explainer-item">
-              <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-              <div><strong>O gráfico</strong> — Exibe a parábola $A(x) = x(10 - x)$. O ponto dourado marca a posição atual e a reta tracejada é a tangente, cuja inclinação é $A'(x) = 10 - 2x$. Quando ela é zero, chegamos ao máximo.</div>
-            </div>
-            <div class="sim-explainer-item">
-              <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2 .336-3.5 2-3.5 4 0 1.381.956 2.766 2.5 3.5L6 11l2 2h4l2-2 .5-.5C16.044 9.766 17 8.381 17 7c0-2-1.5-3.664-3.5-4C11.577 2.679 10 3.782 10 5.172z"/><path d="M6 11v7a1 1 0 0 0 1 1h2v-3h2v3h2a1 1 0 0 0 1-1v-7"/></svg></span>
-              <div><strong>O cachorrinho</strong> — Reage à eficiência: fica triste longe do máximo e feliz ao atingir o ponto ótimo — $x = 5$ m, área máxima de <strong>25 m²</strong>.</div>
+          <button type="button" class="collapsible" style="max-width:720px;margin:0 auto 20px;">
+            <span class="collapsible-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Como usar o simulador
+            </span>
+          </button>
+          <div class="content" style="max-width:720px;margin:0 auto;">
+            <div class="sim-explainer">
+              <div class="sim-explainer-item">
+                <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="10" cy="6" r="2" fill="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="16" cy="12" r="2" fill="currentColor"/></svg></span>
+                <div><strong>Controle deslizante</strong> — Arraste para escolher a largura $x$ (de 0,5 m a 9,5 m). O comprimento $y = 10 - x$ é calculado automaticamente, pois $2x + 2y = 20$.</div>
+              </div>
+              <div class="sim-explainer-item">
+                <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 20 3 4 21 20 3 20"/></svg></span>
+                <div><strong>Vista aérea</strong> — O retângulo muda de forma conforme você ajusta $x$ — mais largo e achatado ou mais estreito e comprido.</div>
+              </div>
+              <div class="sim-explainer-item">
+                <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+                <div><strong>Gráfico</strong> — Mostra a parábola $A(x) = x(10-x)$. A reta tracejada é a tangente com inclinação $A'(x) = 10-2x$. Quando ela é zero, chegamos ao máximo.</div>
+              </div>
+              <div class="sim-explainer-item">
+                <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2 .336-3.5 2-3.5 4 0 1.381.956 2.766 2.5 3.5L6 11l2 2h4l2-2 .5-.5C16.044 9.766 17 8.381 17 7c0-2-1.5-3.664-3.5-4C11.577 2.679 10 3.782 10 5.172z"/><path d="M6 11v7a1 1 0 0 0 1 1h2v-3h2v3h2a1 1 0 0 0 1-1v-7"/></svg></span>
+                <div><strong>Bob</strong> — Fica triste longe do máximo e feliz ao atingir o ponto ótimo: $x = 5$ m, área máxima de <strong>25 m²</strong>.</div>
+              </div>
             </div>
           </div>
 
@@ -2663,6 +3111,10 @@ footer { background: var(--white); }
 
       <section class="conteudo prova-section" id="prova">
         <div class="container">
+          <div class="section-progress-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+            Resolução Matemática
+          </div>
           <h2 class="h2 section-title">Resolução Matemática Completa</h2>
           <p class="section-text">
             Veja o passo a passo rigoroso que transforma a descrição verbal do problema 
@@ -3307,6 +3759,27 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', () => {
     goTopBtn?.classList.toggle('active', window.scrollY >= 600);
   });
+
+  // Bottom nav: highlight active section
+  const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
+  const sections = document.querySelectorAll('section[id]');
+
+  function updateBottomNav() {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top <= 100) current = section.getAttribute('id');
+    });
+    bottomNavItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('href') === '#' + current) {
+        item.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateBottomNav, { passive: true });
+  updateBottomNav();
 
   
   
