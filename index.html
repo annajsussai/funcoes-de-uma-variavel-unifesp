@@ -2582,18 +2582,9 @@ footer { background: var(--white); }
   }
 
   .medias-prop-card {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px 16px;
+    padding: 0;
+    overflow: hidden;
   }
-
-  .medias-prop-icon {
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-}
 
 /* --- Smooth focus indicators for accessibility --- */
 a:focus-visible,
@@ -3281,30 +3272,7 @@ html {
             </div>
           </div>
 
-          
-          <div class="medias-props">
-            <div class="medias-prop-card">
-              <div class="medias-prop-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <h4 class="medias-prop-title">Generalização AM–GM</h4>
-              <p class="medias-prop-text">Para $n$ termos positivos: $\sqrt[n]{x_1 \cdots x_n} \leq \frac{x_1 + \cdots + x_n}{n}$, com igualdade sse $x_1 = \cdots = x_n$.</p>
-            </div>
-            <div class="medias-prop-card">
-              <div class="medias-prop-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 22 20 2 20"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              </div>
-              <h4 class="medias-prop-title">Interpretação Geométrica</h4>
-              <p class="medias-prop-text">Entre todos os retângulos com perímetro fixo, o <strong>quadrado</strong> tem a maior área. Em $n$ dimensões: o $n$-cubo tem o maior volume.</p>
-            </div>
-            <div class="medias-prop-card">
-              <div class="medias-prop-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <h4 class="medias-prop-title">Elegância vs. Generalidade</h4>
-              <p class="medias-prop-text">AM–GM traz soluções mais diretas quando a estrutura do problema encaixa. O Cálculo Diferencial é mais geral e sistemático.</p>
-            </div>
-          </div>
+
 
           
           <div class="medias-collapsibles">
@@ -3344,6 +3312,16 @@ html {
                 <strong>Interpretação geométrica:</strong> entre todos os ortotonos (paralelepípedos 
                 $n$-dimensionais) com volume fixo, o $n$-cubo tem a menor soma dos comprimentos das arestas.
               </p>
+            </div>
+
+            <button type="button" class="collapsible">
+              <span class="collapsible-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Elegância vs. Generalidade
+              </span>
+            </button>
+            <div class="content">
+              <p>AM–GM traz soluções mais diretas quando a estrutura do problema encaixa. O Cálculo Diferencial é mais geral e sistemático.</p>
             </div>
           </div>
 
@@ -3776,9 +3754,6 @@ document.addEventListener('DOMContentLoaded', function () {
     goTopBtn?.classList.toggle('active', window.scrollY >= 600);
   });
 
-
-
-  
   
   const iniciarBtn = document.querySelector('.hero .btn.btn-primary');
 
