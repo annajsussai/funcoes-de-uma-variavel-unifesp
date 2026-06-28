@@ -55,176 +55,439 @@
   --transition: 0.25s ease-in-out;
 }
 
-[data-theme="dark"] {
-  --white: #0f1117;
-  --white-2: #1a1f2e;
-  --black: #f0f4ff;
-  --cinza03: #a8b8cc;
-  --cinza04: #6e84a0;
-  --royal-azul-escuro: #c8d8f5;
-  --azul-escuro: #e8f0ff;
-}
-
-[data-theme="dark"] body {
-  background: #0f1117;
-  color: #c8d8f5;
-}
-
-[data-theme="dark"] header {
-  background: rgba(15, 17, 23, 0.97);
-  border-bottom-color: rgba(71, 115, 214, 0.2);
-}
-
-[data-theme="dark"] .hero {
-  background: #1a2540;
-}
-
-[data-theme="dark"] .hero-shape { background: #0f1117; }
-
-[data-theme="dark"] .conteudo { background: #0f1117; }
-
-[data-theme="dark"] .section-text { color: #a8b8cc; }
-
-[data-theme="dark"] .intuition-block {
-  background: linear-gradient(135deg, #0d1525, #1a1208);
-  border-left-color: #4773d6;
-}
-
-[data-theme="dark"] .intuition-text { color: #c8d8f5; }
-
-[data-theme="dark"] .content {
-  background: #1a1f2e;
-  color: #a8b8cc;
-}
-
-[data-theme="dark"] .simulador-section { background: #131825; }
-
-[data-theme="dark"] .prova-section { background: #0f1117; }
-
-[data-theme="dark"] .canvas-wrapper,
-[data-theme="dark"] .dog-panel,
-[data-theme="dark"] .stat-card,
-[data-theme="dark"] .sim-explainer-item {
-  background: #1a1f2e;
-}
-
-[data-theme="dark"] .stat-card.stat-area {
-  background: linear-gradient(135deg, #1a3a8f, #8a5d00);
-}
-
-[data-theme="dark"] .stat-label { color: #6e84a0; }
-[data-theme="dark"] .stat-value { color: #c8d8f5; }
-
-[data-theme="dark"] .step-title { color: #c8d8f5; }
-[data-theme="dark"] .step-text  { color: #a8b8cc; }
-
-[data-theme="dark"] .step-number {
-  background: #4773d6;
-  color: #ffffff;
-}
-[data-theme="dark"] .proof-step--highlight .step-number { background: #5b8def; color: #ffffff; }
-[data-theme="dark"] .proof-step--result .step-number   { background: #2a6dd9; color: #ffffff; }
-
-[data-theme="dark"] .math-block {
-  background: #1a1f2e;
-  color: #c8d8f5;
-}
-
-[data-theme="dark"] .math-block::-webkit-scrollbar { display: none; }
-
 .proof-step--highlight .math-block { background: #0d1a35; }
-[data-theme="dark"] .proof-step--result .math-block   { background: #0d1a35; }
 
-[data-theme="dark"] footer { background: #0f1117; }
-
-[data-theme="dark"] .footer-link { color: #6e84a0; }
-[data-theme="dark"] .footer-link:hover { color: #c8d8f5; }
-[data-theme="dark"] .footer-text { color: #a8b8cc; }
-[data-theme="dark"] .copyright   { color: #6e84a0; }
-
-[data-theme="dark"] .social-link {
-  color: #a8b8cc;
-  border-color: rgba(255,255,255,0.1);
+.problemas-section {
+  padding: 72px 0;
+  background: var(--white);
 }
 
-[data-theme="dark"] .hero-shape {
-  background: #1a2540;
-}
-[data-theme="dark"] .hero-shape svg path,
-[data-theme="dark"] .hero-shape .hero-shape-path-light { fill: #0f1117 !important; }
-[data-theme="dark"] .section-wave--to-sim svg path { fill: #131825 !important; }
-[data-theme="dark"] .section-wave--to-prova svg path { fill: #0f1117 !important; }
-[data-theme="dark"] .sim-wave-bottom path { fill: #0f1117 !important; }
-
-[data-theme="dark"] ::-webkit-scrollbar-track { background: #1a1f2e; }
-[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #3a4a60; }
-
-/* ── Dark mode: contraste garantido ── */
-[data-theme="dark"] .hero-title  { color: #e8f0ff; }
-[data-theme="dark"] .hero-eyebrow { color: #7eb3ff; background: rgba(71,115,214,0.2); }
-[data-theme="dark"] .hero-text   { color: #a8b8cc; }
-
-[data-theme="dark"] .conteudo .section-title { color: #c8d8f5; }
-[data-theme="dark"] .conteudo .section-text  { color: #a8b8cc; }
-
-[data-theme="dark"] .intuition-block { background: linear-gradient(135deg, #0d1525, #1a1208); border-left-color: #4773d6; }
-[data-theme="dark"] .intuition-text  { color: #c8d8f5; }
-
-[data-theme="dark"] .collapsible { background-color: #1e2d4a; color: #e8f0ff; }
-[data-theme="dark"] .collapsible:hover { background-color: #253868; }
-[data-theme="dark"] .collapsible.active { background-color: #1a3a7a; }
-[data-theme="dark"] .content { background: #1a1f2e; color: #a8b8cc; }
-
-[data-theme="dark"] .dog-state-badge         { background: #1a2d4a; color: #7eb3ff; }
-[data-theme="dark"] .dog-state-badge.state-sad   { background: #2a1a00; color: #f5c070; }
-[data-theme="dark"] .dog-state-badge.state-happy { background: #0f2a10; color: #6ee87b; }
-[data-theme="dark"] .dog-state-desc  { color: #8a9bb0; }
-
-[data-theme="dark"] .sim-explainer-item strong { color: #c8d8f5; }
-
-[data-theme="dark"] .slider-label  { color: #a8b8cc; }
-[data-theme="dark"] .slider-value  { color: #7eb3ff; }
-
-[data-theme="dark"] .proof-step--highlight .math-block { background: #0d1a35; color: #c8d8f5; }
-[data-theme="dark"] .proof-step--result    .math-block { background: #0d1f2e; color: #c8d8f5; }
-
-[data-theme="dark"] .legend-tangent { color: #ff7070; }
-
-[data-theme="dark"] .section-title { color: #c8d8f5; }
-[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #c8d8f5; }
-
-[data-theme="dark"] .derivative-live {
-  background: rgba(71, 115, 214, 0.15);
-  color: #c8d8f5;
+.problemas-header {
+  text-align: center;
+  margin-bottom: 28px;
 }
 
-[data-theme="dark"] .result-conclusion {
-  background: #2a1e00;
-  color: #f5dfa0 !important;
+.problemas-title {
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: var(--weight-700);
+  color: var(--royal-azul-escuro);
+  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
-.dark-mode-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
+.problemas-subtitle {
+  font-size: clamp(14px, 3.5vw, 16px);
+  color: var(--cinza03);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.prob-legend {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  color: var(--royal-azul-escuro);
-  font-size: 20px;
-  transition: var(--transition);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.prob-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.prob-badge--amgm {
+  background: rgba(217,119,6,0.12);
+  color: #92400E;
+}
+
+.prob-badge--calc {
+  background: rgba(15,82,186,0.10);
+  color: var(--azul);
+}
+
+.prob-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .prob-cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 960px) {
+  .prob-cards { grid-template-columns: repeat(6, 1fr); }
+  .prob-card { grid-column: span 2; }
+  .prob-card:nth-child(4) { grid-column: 2 / 4; }
+  .prob-card:nth-child(5) { grid-column: 4 / 6; }
+}
+
+.prob-card {
+  background: var(--white-2);
+  border-radius: 16px;
+  padding: 22px 20px;
+  border-top: 3px solid var(--laranja);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.prob-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.prob-card--highlight { border-top-color: var(--azul); }
+.prob-card--result    { border-top-color: var(--verde); }
+
+.prob-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.prob-card-icon {
   flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(217,119,6,0.1);
+  color: var(--laranja);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dark-mode-toggle:hover {
-  background: rgba(71,115,214,0.1);
+.prob-card--highlight .prob-card-icon { background: rgba(15,82,186,0.08); color: var(--azul); }
+.prob-card--result    .prob-card-icon { background: rgba(26,79,160,0.08); color: var(--verde); }
+
+.prob-card-num {
+  font-size: 10px;
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--laranja);
+  margin-bottom: 4px;
 }
 
-[data-theme="dark"] .dark-mode-toggle {
-  color: #f0d060;
+.prob-card--highlight .prob-card-num { color: var(--azul); }
+.prob-card--result    .prob-card-num { color: var(--verde); }
+
+.prob-card-title {
+  font-size: 14px;
+  font-weight: var(--weight-700);
+  color: var(--royal-azul-escuro);
+  line-height: 1.35;
+}
+
+.prob-card-desc {
+  font-size: 13px;
+  color: var(--cinza03);
+  line-height: 1.6;
+}
+
+.prob-card .math-block {
+  font-size: 12.5px;
+  margin: 0;
+  padding: 8px 12px;
+  border-left-color: var(--laranja);
+}
+
+.prob-card--highlight .math-block { border-left-color: var(--azul); }
+.prob-card--result    .math-block { border-left-color: var(--verde); }
+
+.prob-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.prob-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.prob-method-text {
+  color: var(--cinza03);
+  line-height: 1.5;
+  flex: 1;
+  min-width: 0;
+}
+
+.medias-section {
+  padding: 72px 0;
+  background: #eef4ff;
+}
+
+.medias-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.medias-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--azul);
+  background: rgba(15,82,186,0.08);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.medias-title {
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: var(--weight-700);
+  color: var(--azul);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.medias-subtitle {
+  font-size: clamp(14px, 3.5vw, 17px);
+  color: var(--cinza03);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.medias-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto 48px;
+}
+
+@media (min-width: 700px) {
+  .medias-split { grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
+}
+
+.medias-formula-card {
+  background: linear-gradient(145deg, var(--royal-azul-escuro) 0%, #0F52BA 100%);
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(10,35,66,0.25);
+}
+
+.medias-formula-label {
+  font-size: 11px;
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 20px;
+}
+
+.medias-formula-display {
+  font-size: clamp(18px, 4vw, 26px);
+  color: #ffffff;
+  margin-bottom: 20px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.medias-formula-eq {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 30px;
+  padding: 6px 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+}
+
+.medias-formula-eq svg { color: #4ade80; flex-shrink: 0; }
+
+.medias-explain-text {
+  font-size: var(--size-4);
+  color: var(--cinza03);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.medias-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: linear-gradient(135deg, #DDEAFF, #FFFBEB);
+  border-left: 4px solid var(--azul);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: var(--size-5);
+  color: var(--royal-azul-escuro);
+  line-height: 1.65;
+}
+
+.medias-highlight-icon {
+  flex-shrink: 0;
+  color: var(--azul);
+  margin-top: 1px;
+  display: flex;
+}
+
+.medias-props {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+@media (min-width: 600px) {
+  .medias-props { grid-template-columns: repeat(3, 1fr); }
+}
+
+.medias-prop-card {
+  background: var(--white-2);
+  border-radius: 14px;
+  padding: 22px 18px;
+  border-top: 3px solid var(--azul);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.medias-prop-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15,82,186,0.1);
+}
+
+.medias-prop-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(15,82,186,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--azul);
+  margin-bottom: 14px;
+}
+
+.medias-prop-title {
+  font-size: var(--size-5);
+  font-weight: var(--weight-700);
+  color: var(--royal-azul-escuro);
+  margin-bottom: 8px;
+}
+
+.medias-prop-text {
+  font-size: 13px;
+  color: var(--cinza03);
+  line-height: 1.65;
+}
+
+.medias-collapsibles {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.intro-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto 32px;
+  text-align: left;
+}
+
+@media (min-width: 600px) {
+  .intro-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.intro-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 12px rgba(15,82,186,0.08);
+  border-top: 3px solid var(--azul);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.intro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15,82,186,0.13);
+}
+
+.intro-card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(15,82,186,0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--azul);
+  margin-bottom: 14px;
+}
+
+.intro-card-title {
+  font-size: var(--size-4);
+  font-weight: var(--weight-700);
+  color: var(--royal-azul-escuro);
+  margin-bottom: 8px;
+}
+
+.intro-card-text {
+  font-size: 13px;
+  color: var(--cinza03);
+  line-height: 1.65;
+}
+
+.collapsible-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: var(--royal-azul-escuro);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proof-step--highlight .step-icon { background: var(--azul); }
+.proof-step--result .step-icon { background: var(--verde); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .stat-card.stat-area { grid-column: span 1; }
 }
 
 *, *::before, *::after {
@@ -349,7 +612,6 @@ header .container {
   align-items: center;
 }
 
-/* ── Hamburger btn ── */
 .navbar-menu-btn {
   font-size: 26px;
   padding: 6px;
@@ -358,11 +620,10 @@ header .container {
   z-index: 301;
   position: relative;
 }
-[data-theme="dark"] .navbar-menu-btn { color: #c8d8f5; }
+
 .navbar-wrapper { position: static; }
 .hamburger-icon { display: block; }
 
-/* ── Overlay ── */
 .nav-overlay {
   display: none;
   position: fixed;
@@ -375,7 +636,6 @@ header .container {
 }
 .nav-overlay.active { display: block; opacity: 1; }
 
-/* ── Drawer ── */
 .navbar {
   position: fixed;
   top: 0;
@@ -392,9 +652,7 @@ header .container {
   overflow: hidden;
 }
 .navbar.active { right: 0; }
-[data-theme="dark"] .navbar { background: #1a1f2e; }
 
-/* drawer header */
 .navbar-drawer-header {
   display: flex;
   align-items: center;
@@ -422,7 +680,6 @@ header .container {
 }
 .navbar-close-btn:hover { background: rgba(71,115,214,0.1); }
 
-/* list */
 .navbar-list { padding: 12px 12px; flex: 1; }
 .nav-item:not(:last-child) { margin-bottom: 2px; }
 .nav-link {
@@ -437,14 +694,8 @@ header .container {
   transition: background 0.18s, color 0.18s;
 }
 .nav-link:hover { background: rgba(71,115,214,0.1); color: var(--azul); }
-[data-theme="dark"] .nav-link { color: #c8d8f5; }
-[data-theme="dark"] .nav-link:hover { background: rgba(71,115,214,0.2); color: #7eb3ff; }
-
-/* icons before each link */
 
 .nav-item--toggle { display: none; }
-.mobile-dark-toggle { color: var(--royal-azul-escuro); }
-[data-theme="dark"] .mobile-dark-toggle { color: #f0d060; }
 
 .hero {
   position: relative;
@@ -578,10 +829,6 @@ header .container {
   background: var(--verde-bg);
 }
 
-[data-theme="dark"] .section-wave--to-prova {
-  background: #131825;
-}
-
 .section-wave svg {
   display: block;
   width: 100%;
@@ -708,11 +955,16 @@ header .container {
 }
 
 .sim-explainer {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 12px;
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto 40px;
+}
+
+@media (min-width: 640px) {
+  .sim-explainer { grid-template-columns: 1fr 1fr; }
+  .sim-explainer .sim-explainer-item:last-child:nth-child(odd) { grid-column: span 2; }
 }
 
 .sim-explainer-item {
@@ -965,7 +1217,7 @@ header .container {
 }
 
 .stat-card.stat-area {
-  grid-column: span 2;
+  grid-column: span 1;
   background: linear-gradient(135deg, var(--azul), #FBBF24);
 }
 
@@ -1041,7 +1293,7 @@ header .container {
   width: 44px;
   height: 44px;
   min-width: 44px;
-  border-radius: 50%;
+  border-radius: 12px;
   background: var(--royal-azul-escuro);
   color: white;
   display: flex;
@@ -1122,7 +1374,7 @@ header .container {
   background: #fef3c7;
 }
 
-.quiz { padding: 56px 0; }
+.quiz { padding: 56px 0; background: #eef4ff; }
 
 .quiz-card {
   background: linear-gradient(160deg, #0d1f3c 0%, #0a2a5e 50%, #0d1f3c 100%);
@@ -1533,20 +1785,26 @@ footer { background: var(--white); }
 }
 
 .sim-stats-full {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 600px) {
+  .sim-stats-full {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .sim-stats-full .stat-card {
-  padding: 20px 16px;
+  padding: 16px 14px;
 }
 
 .sim-stats-full .stat-label {
-  font-size: 12px;
-  margin-bottom: 8px;
+  font-size: 11px;
+  margin-bottom: 6px;
 }
 
 .sim-stats-full .stat-value {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .sim-stats-full .stat-card.stat-area {
@@ -1561,15 +1819,7 @@ footer { background: var(--white); }
 }
 
 @media (max-width: 767px) {
-  .sim-stats-full {
-    grid-template-columns: 1fr 1fr;
-  }
-  .sim-stats-full .stat-card.stat-area {
-    grid-column: span 2;
-  }
-  .sim-stats-full .stat-value {
-    font-size: 20px;
-  }
+  
 }
 
 @media (min-width: 768px) {
@@ -1597,7 +1847,7 @@ footer { background: var(--white); }
 
   #navCloseBtn { display: none !important; }
   .navbar-menu-btn { display: none !important; }
-  .mobile-dark-toggle { display: none; }
+  
   .nav-item--toggle { display: flex; }
   .nav-overlay { display: none !important; }
   .navbar-drawer-header { display: none; }
@@ -1651,24 +1901,13 @@ footer { background: var(--white); }
   }
 
   
-  [data-theme="dark"] .nav-link {
-    color: #c8d8f5;
-  }
-  [data-theme="dark"] .nav-link:hover {
-    background: rgba(71,115,214,0.15);
-    color: #fff;
-  }
+  
+  
 
   
-  .dark-mode-toggle {
-    color: var(--royal-azul-escuro);
-    padding: 6px;
-    border-radius: 6px;
-    width: 34px;
-    height: 34px;
-  }
-  [data-theme="dark"] .dark-mode-toggle { color: #f0d060; }
-  .dark-mode-toggle:hover { background: rgba(15,82,186,0.08); }
+  
+  
+  
 
   .footer-top .container {
     flex-direction: row;
@@ -1688,6 +1927,171 @@ footer { background: var(--white); }
 @media (prefers-reduced-motion: reduce) {
   .hero-svg { animation: none; }
   .content.active { animation: none; }
+}
+
+@media (max-width: 639px) {
+
+  
+  .conteudo          { padding: 40px 0; }
+  .simulador-section { padding: 40px 0; }
+  .prova-section     { padding: 40px 0; }
+  .medias-section    { padding: 48px 0; }
+  .problemas-section { padding: 48px 0; }
+  .quiz              { padding: 40px 0; }
+
+  
+  .conteudo .section-text {
+    font-size: 14px;
+    line-height: 1.65;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  
+  .intro-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .intro-card {
+    padding: 18px 16px;
+  }
+
+  
+  .intuition-block {
+    padding: 13px 14px;
+    margin-bottom: 20px;
+  }
+  .intuition-text { font-size: 13px; line-height: 1.6; }
+
+  
+  .collapsible { padding: 12px 14px; font-size: 13px; }
+
+  
+  .sim-explainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .sim-explainer-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 13px;
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  
+  .sim-stats-full {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px;
+  }
+  .sim-stats-full .stat-card.stat-area {
+    grid-column: span 1 !important;
+  }
+  .stat-card.stat-area {
+    grid-column: span 1 !important;
+  }
+  .sim-stats-full .stat-value { font-size: 20px; }
+  .sim-stats-full .stat-label { font-size: 10px; }
+  .sim-stats-full .stat-card  { padding: 12px 10px; }
+
+  
+  .proof-steps { gap: 0; }
+  .proof-steps::before { display: none; }
+
+  .proof-step {
+    padding: 16px 0;
+    gap: 12px;
+  }
+
+  .step-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 10px;
+  }
+  .step-icon svg { width: 18px; height: 18px; }
+
+  .step-title { font-size: 14px; margin-bottom: 6px; }
+  .step-text  { font-size: 13px; margin-bottom: 8px; }
+  .math-block { padding: 8px 10px; font-size: 12px; }
+
+  .proof-step .step-text:not(:first-of-type) {
+    display: none;
+  }
+  .result-conclusion { display: block !important; font-size: 13px !important; padding: 10px 12px; }
+
+  .derivative-live { font-size: 12px; padding: 5px 10px; }
+
+  
+  .medias-header  { margin-bottom: 28px; }
+  .medias-title   { font-size: 22px; }
+  .medias-subtitle{ font-size: 13px; }
+
+  .medias-formula-card { padding: 24px 18px; border-radius: 14px; }
+  .medias-formula-display { font-size: 18px; min-height: 48px; }
+
+  .medias-explain-text:nth-of-type(2) { display: none; }
+  .medias-explain-text { font-size: 13px; margin-bottom: 12px; }
+  .medias-highlight { font-size: 13px; padding: 12px 13px; }
+
+  
+  .medias-props {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .medias-prop-card {
+    padding: 16px 14px;
+  }
+  .medias-prop-icon { width: 38px; height: 38px; margin-bottom: 10px; }
+  .medias-prop-title { font-size: 13px; }
+  .medias-prop-text  { font-size: 12px; }
+
+  .medias-collapsibles .collapsible { margin-bottom: 8px; }
+
+  
+  .problemas-header { margin-bottom: 20px; }
+  .problemas-title  { font-size: 22px; }
+
+  .prob-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .prob-card {
+    padding: 18px 16px;
+    gap: 10px;
+  }
+
+  .prob-method:first-child { display: none; }
+
+  .prob-card-title { font-size: 13px; }
+  .prob-card-desc  { font-size: 12px; }
+  .prob-card .math-block { font-size: 11px; padding: 6px 10px; }
+  .prob-method-text { font-size: 11px; }
+  .prob-badge { font-size: 10px; padding: 3px 8px; }
+
+  .intuition-block .intuition-text { font-size: 13px; }
+
+  
+  .quiz-card { padding: 24px 16px 28px; border-radius: 12px; }
+  .quiz-title { font-size: 20px; margin-bottom: 8px; }
+  .quiz-text  { font-size: 13px; margin-bottom: 28px; }
+  .opt-quiz-question-text { font-size: 14px; }
+  .opt-quiz-option { padding: 10px 12px; font-size: 13px; }
 }
 
 .dog-css-wrapper .dog {
@@ -1959,44 +2363,6 @@ footer { background: var(--white); }
   left: -7%; top: -18%;
 }
 
-/* ── Dog color protection in dark mode ── */
-[data-theme="dark"] .dog .body,
-[data-theme="dark"] .tail,
-[data-theme="dark"] .tail::before,
-[data-theme="dark"] .legs__front,
-[data-theme="dark"] .legs__back,
-[data-theme="dark"] .face::after,
-[data-theme="dark"] .face::before,
-[data-theme="dark"] .year--right { background-color: #f79e38 !important; }
-
-[data-theme="dark"] .year--left { background-color: #e99036 !important; }
-
-[data-theme="dark"] .cheast,
-[data-theme="dark"] .cheast::after,
-[data-theme="dark"] .cheast::before,
-[data-theme="dark"] .face,
-[data-theme="dark"] .nose { background-color: #ffffff !important; }
-
-[data-theme="dark"] .legs__front::after,
-[data-theme="dark"] .legs__back::after { background-color: #ffffff !important; }
-
-[data-theme="dark"] .eye,
-[data-theme="dark"] .nose::after { background-color: #000000 !important; }
-
-[data-theme="dark"] .mouth { border-color: #000000; }
-
-/* sad state overrides still apply in dark mode */
-[data-theme="dark"] #dogPanel.state-sad .dog .body,
-[data-theme="dark"] #dogPanel.state-sad .tail,
-[data-theme="dark"] #dogPanel.state-sad .legs__front,
-[data-theme="dark"] #dogPanel.state-sad .legs__back,
-[data-theme="dark"] #dogPanel.state-sad .cheast::after,
-[data-theme="dark"] #dogPanel.state-sad .cheast::before { background-color: #a0b4cc !important; }
-[data-theme="dark"] #dogPanel.state-sad .face::after,
-[data-theme="dark"] #dogPanel.state-sad .face::before   { background-color: #a0b4cc !important; }
-[data-theme="dark"] #dogPanel.state-sad .year--left  { background-color: #8aa0b8 !important; }
-[data-theme="dark"] #dogPanel.state-sad .year--right { background-color: #a0b4cc !important; }
-
 #dogPanel.state-sad .heart { animation-play-state: paused; opacity: 0 !important; }
 #dogPanel.state-sad .dog .body,
 #dogPanel.state-sad .tail,
@@ -2032,7 +2398,7 @@ footer { background: var(--white); }
 <body id="top">
 
   
-  <!-- overlay -->
+  
   <div class="nav-overlay" id="navOverlay"></div>
 
   <header>
@@ -2057,6 +2423,8 @@ footer { background: var(--white); }
               <li class="nav-item"><a href="#introducao" class="nav-link">Introdução</a></li>
               <li class="nav-item"><a href="#simulador"  class="nav-link">Simulador</a></li>
               <li class="nav-item"><a href="#prova"      class="nav-link">Resolução</a></li>
+              <li class="nav-item"><a href="#medias"     class="nav-link">Desig. Médias</a></li>
+              <li class="nav-item"><a href="#problemas"  class="nav-link">Problemas</a></li>
               <li class="nav-item"><a href="#quiz"       class="nav-link">Quiz</a></li>
             </ul>
           </nav>
@@ -2073,7 +2441,7 @@ footer { background: var(--white); }
         <div class="container">
           <div class="hero-main">
             <div class="hero-content">
-              <span class="hero-eyebrow">Funções de uma variável · Otimização</span>
+              <span class="hero-eyebrow">Funções de uma variável</span>
               <h1 class="h1 hero-title">Problemas de Otimização</h1>
               <p class="hero-text">
                 Você já pensou em como seria incrível se a gente conseguisse descobrir, sem quebrar a cabeça, a decisão perfeita para economizar espaço, gastar menos ou lucrar mais em qualquer situação?
@@ -2097,53 +2465,79 @@ footer { background: var(--white); }
         <div class="container">
           <h2 class="h2 section-title">O Que São Problemas de Otimização?</h2>
           <p class="section-text">
-            Problemas de Otimização são situações em que queremos encontrar o <strong>melhor valor possível</strong> de 
-            uma quantidade — o maior lucro, o menor custo, a maior área — sujeita a uma restrição.
-            As derivadas são a ferramenta central porque nos dizem exatamente onde uma função 
-            "para de crescer e começa a cair" (máximo) ou o contrário (mínimo): matematicamente, 
+            Situações em que queremos encontrar o <strong>melhor valor possível</strong> de uma quantidade 
+            — o maior lucro, o menor custo, a maior área — sujeita a uma restrição.
+            As derivadas nos dizem exatamente onde uma função "para de crescer" (máximo) ou "para de cair" (mínimo):
             isso ocorre nos pontos onde $f'(x) = 0$.
           </p>
 
+          
+          <div class="intro-cards">
+            <div class="intro-card">
+              <div class="intro-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h3 class="intro-card-title">Função Objetivo</h3>
+              <p class="intro-card-text">A quantidade que queremos <strong>maximizar ou minimizar</strong> — área, lucro, custo. Expressa como $f(x)$.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <h3 class="intro-card-title">Restrição</h3>
+              <p class="intro-card-text">O que <strong>limita nossa liberdade</strong> — perímetro fixo, orçamento, material disponível. Reduz variáveis a uma só.</p>
+            </div>
+            <div class="intro-card">
+              <div class="intro-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <h3 class="intro-card-title">Ponto Crítico</h3>
+              <p class="intro-card-text">Onde $f'(x) = 0$ — a tangente é horizontal. Confirmamos máximo se $f''(x) &lt; 0$, mínimo se $f''(x) > 0$.</p>
+            </div>
+          </div>
+
           <div class="intuition-block">
-            <div class="intuition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="intuition-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
             <div class="intuition-text">
-              <strong>Intuição Geométrica:</strong> Imagine que você tem 20 metros de cerca. 
-              Com ela, pode formar um retângulo fino como um corredor ($1m \times 9m = 9m^2$) 
-              ou um quadrado ($5m \times 5m = 25m^2$). O perímetro é o mesmo, mas a área muda 
-              dramaticamente. A função $A(x)$ captura toda essa variação, e sua derivada aponta o pico exato.
+              <strong>Intuição Geométrica:</strong> Com 20 metros de cerca você pode fazer um corredor estreito ($1m \times 9m = 9m^2$) 
+              ou um quadrado ($5m \times 5m = 25m^2$). O perímetro é o mesmo — a área muda dramaticamente. 
+              A função $A(x)$ captura essa variação, e sua derivada aponta o pico exato.
             </div>
           </div>
 
           
-          <button type="button" class="collapsible">Por que usar derivadas?</button>
+          <button type="button" class="collapsible">
+            <span class="collapsible-inner"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="10"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Por que usar derivadas?</span>
+          </button>
           <div class="content">
             <p>
-              A derivada $f'(x)$ mede a taxa de variação instantânea de uma função. Quando $f'(x) > 0$, a função está crescendo; 
-              quando $f'(x) &lt; 0$, está decrescendo. O ponto onde $f'(x) = 0$ é onde a função "vira" — é ali que 
-              encontramos máximos e mínimos. Para confirmar se é máximo ou mínimo, usamos a segunda derivada: 
-              $f''(x) &lt; 0$ indica máximo, $f''(x) > 0$ indica mínimo.
+              A derivada $f'(x)$ mede a taxa de variação instantânea. Quando $f'(x) > 0$, a função cresce; 
+              quando $f'(x) &lt; 0$, decresce. O ponto onde $f'(x) = 0$ é onde a função "vira" — máximos e mínimos vivem ali. 
+              Para confirmar: $f''(x) &lt; 0$ indica máximo, $f''(x) > 0$ indica mínimo.
             </p>
           </div>
 
-          <button type="button" class="collapsible">A restrição no problema</button>
+          <button type="button" class="collapsible">
+            <span class="collapsible-inner"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> A restrição no problema</span>
+          </button>
           <div class="content">
             <p>
-              Todo problema de otimização tem duas partes: a <strong>função objetivo</strong> (o que queremos maximizar ou minimizar) 
-              e a <strong>restrição</strong> (o que limita nossa liberdade). No caso do canil: queremos maximizar a área $A = xy$, 
-              mas somos limitados pelo perímetro fixo $2x + 2y = 20$. A restrição nos permite escrever $y$ em 
-              termos de $x$, transformando um problema de duas variáveis em uma função de uma única variável — que 
-              sabemos resolver com derivadas!
+              No caso do canil: queremos maximizar $A = xy$, 
+              mas somos limitados pelo perímetro fixo $2x + 2y = 20$. Isso nos permite escrever $y = 10 - x$, 
+              transformando um problema de duas variáveis em função de uma só — que sabemos resolver com derivadas!
             </p>
           </div>
 
-          <button type="button" class="collapsible">A parábola da área</button>
+          <button type="button" class="collapsible">
+            <span class="collapsible-inner"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> A parábola da área</span>
+          </button>
           <div class="content">
             <p>
-              Substituindo $y = 10 - x$ na área, obtemos $A(x) = x(10 - x) = 10x - x^2$. 
-              Isso é uma parábola de concavidade para baixo (coeficiente de $x^2$ é negativo), 
-              o que garante que ela possui um único ponto de máximo global — exatamente o que 
-              precisamos encontrar! Toda parábola $ax^2 + bx + c$ com $a &lt; 0$ tem seu vértice 
-              (máximo) em $x = -b/(2a)$. No nosso caso: $x = -10/(2 \cdot (-1)) = 5$.
+              Substituindo $y = 10 - x$, obtemos $A(x) = x(10 - x) = 10x - x^2$. 
+              É uma parábola de concavidade para baixo ($a &lt; 0$), garantindo um único máximo global. 
+              O vértice ocorre em $x = -b/(2a) = -10/(2 \cdot (-1)) = 5$.
             </p>
           </div>
         </div>
@@ -2237,7 +2631,6 @@ footer { background: var(--white); }
 
           </div>
 
-          
           <div class="stats-grid sim-stats-full" style="margin-top:16px">
             <div class="stat-card">
               <div class="stat-label">Largura (x)</div>
@@ -2279,7 +2672,9 @@ footer { background: var(--white); }
           <div class="proof-steps">
 
             <div class="proof-step">
-              <div class="step-number">01</div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
               <div class="step-content">
                 <h3 class="step-title">Variáveis e Restrição</h3>
                 <p class="step-text">Chamamos de $x$ a largura e $y$ o comprimento do cercado. 
@@ -2289,7 +2684,9 @@ footer { background: var(--white); }
             </div>
 
             <div class="proof-step">
-              <div class="step-number">02</div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
               <div class="step-content">
                 <h3 class="step-title">Função Objetivo</h3>
                 <p class="step-text">A área do cercado é o produto dos lados. Substituímos $y$ pela expressão encontrada:</p>
@@ -2298,7 +2695,9 @@ footer { background: var(--white); }
             </div>
 
             <div class="proof-step">
-              <div class="step-number">03</div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              </div>
               <div class="step-content">
                 <h3 class="step-title">Primeira Derivada</h3>
                 <p class="step-text">Calculamos $A'(x)$ para encontrar a taxa de variação da área:</p>
@@ -2310,7 +2709,9 @@ footer { background: var(--white); }
             </div>
 
             <div class="proof-step proof-step--highlight">
-              <div class="step-number">04</div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
               <div class="step-content">
                 <h3 class="step-title">Ponto Crítico</h3>
                 <p class="step-text">Igualamos a derivada a zero para encontrar onde a área para de crescer:</p>
@@ -2319,7 +2720,9 @@ footer { background: var(--white); }
             </div>
 
             <div class="proof-step">
-              <div class="step-number">05</div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
               <div class="step-content">
                 <h3 class="step-title">Teste da Segunda Derivada</h3>
                 <p class="step-text">A segunda derivada confirma que $x = 5$ é um máximo (e não mínimo):</p>
@@ -2329,7 +2732,9 @@ footer { background: var(--white); }
             </div>
 
             <div class="proof-step proof-step--result">
-              <div class="step-number">06</div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
               <div class="step-content">
                 <h3 class="step-title">Resultado Ótimo ✓</h3>
                 <p class="step-text">Substituindo $x = 5$ para encontrar $y$ e a área máxima:</p>
@@ -2346,7 +2751,312 @@ footer { background: var(--white); }
       </section>
 
       
-      <section class="quiz" id="quiz">
+
+      
+      <div class="section-wave" aria-hidden="true" style="background:var(--white);line-height:0;display:block;width:100%;overflow:hidden;">
+        <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:auto;">
+          <path d="M0,24 C240,72 480,0 720,40 C960,80 1200,8 1440,36 L1440,72 L0,72 Z" fill="#eef4ff"/>
+        </svg>
+      </div>
+
+            
+      <section class="medias-section" id="medias">
+        <div class="container">
+
+          
+          <div class="medias-header">
+            <div class="medias-eyebrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Ferramenta Clássica
+            </div>
+            <h2 class="h2 medias-title">Desigualdade das Médias</h2>
+            <p class="medias-subtitle">
+              Antes do Cálculo existir, matemáticos já resolviam otimização com elegância pura — 
+              sem uma única derivada.
+            </p>
+          </div>
+
+          
+          <div class="medias-split">
+            <div class="medias-formula-col">
+              <div class="medias-formula-card">
+                <div class="medias-formula-label">AM–GM · dois termos</div>
+                <div class="medias-formula-display">
+                  $$\sqrt{ab} \;\leq\; \frac{a+b}{2}$$
+                </div>
+                <div class="medias-formula-eq">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                  Igualdade quando $a = b$
+                </div>
+              </div>
+            </div>
+
+            <div class="medias-explain-col">
+              <p class="medias-explain-text">
+                A <strong>média geométrica</strong> $\sqrt{ab}$ é sempre menor ou igual à 
+                <strong>média aritmética</strong> $\frac{a+b}{2}$ — para quaisquer $a, b > 0$.
+              </p>
+              <p class="medias-explain-text">
+                O máximo (ou mínimo) acontece exatamente quando as variáveis são iguais. 
+                Esse fato resolve uma série de problemas clássicos <em>sem derivar uma única vez</em>.
+              </p>
+              <div class="medias-highlight">
+                <div class="medias-highlight-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div>
+                  <strong>No problema do cercado:</strong> maximizar $A = xy$ com $x + y = 10$.
+                  Por AM–GM: $\sqrt{xy} \leq \frac{x+y}{2} = 5$, então $xy \leq 25$.
+                  Máximo quando $x = y = 5$ — o mesmo quadrado que o Cálculo nos deu.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="medias-props">
+            <div class="medias-prop-card">
+              <div class="medias-prop-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h4 class="medias-prop-title">Generalização AM–GM</h4>
+              <p class="medias-prop-text">Para $n$ termos positivos: $\sqrt[n]{x_1 \cdots x_n} \leq \frac{x_1 + \cdots + x_n}{n}$, com igualdade sse $x_1 = \cdots = x_n$.</p>
+            </div>
+            <div class="medias-prop-card">
+              <div class="medias-prop-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 22 20 2 20"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <h4 class="medias-prop-title">Interpretação Geométrica</h4>
+              <p class="medias-prop-text">Entre todos os retângulos com perímetro fixo, o <strong>quadrado</strong> tem a maior área. Em $n$ dimensões: o $n$-cubo tem o maior volume.</p>
+            </div>
+            <div class="medias-prop-card">
+              <div class="medias-prop-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4 class="medias-prop-title">Elegância vs. Generalidade</h4>
+              <p class="medias-prop-text">AM–GM traz soluções mais diretas quando a estrutura do problema encaixa. O Cálculo Diferencial é mais geral e sistemático.</p>
+            </div>
+          </div>
+
+          
+          <div class="medias-collapsibles">
+            <button type="button" class="collapsible">
+              <span class="collapsible-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 8 12 12 16"/><line x1="16" y1="12" x2="8" y2="12"/></svg>
+                Demonstração geométrica da desigualdade
+              </span>
+            </button>
+            <div class="content">
+              <p>
+                Tome um segmento $AC$ de comprimento $a + b$, com ponto $D$ entre $A$ e $C$ tal que $AD = a$ e $DC = b$.
+                Construa uma semicircunferência de diâmetro $AC$ e trace a perpendicular a $\overleftrightarrow{AC}$ pelo ponto $D$.
+                Seja $B$ a interseção da semicircunferência com essa perpendicular.
+              </p>
+              <p>
+                Os triângulos $\triangle ABD$ e $\triangle BCD$ são semelhantes (critério ângulo-ângulo), portanto:
+                $$\frac{AD}{BD} = \frac{BD}{DC} \implies BD = \sqrt{ab}$$
+                Como $BD \leq \frac{AC}{2} = \frac{a+b}{2}$, a desigualdade fica demonstrada.
+                A igualdade ocorre quando $D$ é o ponto médio de $AC$, ou seja, quando $a = b$.
+              </p>
+            </div>
+
+            <button type="button" class="collapsible">
+              <span class="collapsible-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                Generalização para $n$ números (AM–GM)
+              </span>
+            </button>
+            <div class="content">
+              <p>
+                A desigualdade se generaliza: dado qualquer conjunto $\{x_1, \ldots, x_n\} \subset \mathbb{R}^+$,
+                $$\sqrt[n]{x_1 \cdots x_n} \;\leq\; \frac{x_1 + \cdots + x_n}{n}$$
+                com igualdade se e somente se $x_1 = x_2 = \cdots = x_n$.
+              </p>
+              <p>
+                <strong>Interpretação geométrica:</strong> entre todos os ortotonos (paralelepípedos 
+                $n$-dimensionais) com volume fixo, o $n$-cubo tem a menor soma dos comprimentos das arestas.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      
+      <div class="section-wave section-wave--to-prova" aria-hidden="true">
+        <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,20 C360,70 720,0 1080,50 C1260,70 1380,20 1440,40 L1440,70 L0,70 Z" fill="var(--white)"/>
+        </svg>
+      </div>
+
+      <section class="problemas-section" id="problemas">
+        <div class="container">
+
+          <div class="problemas-header">
+            <div class="medias-eyebrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M6 20V10l6-6 6 6v10"/></svg>
+              Dois métodos · mesma resposta
+            </div>
+            <h2 class="h2 problemas-title">Problemas Clássicos</h2>
+            <p class="problemas-subtitle">AM–GM e Cálculo chegam à mesma solução — cada um com sua elegância.</p>
+          </div>
+
+          
+          <div class="prob-legend">
+            <span class="prob-badge prob-badge--amgm">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              AM–GM
+            </span>
+            <span class="prob-badge prob-badge--calc">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+              Cálculo
+            </span>
+          </div>
+
+          <div class="prob-cards">
+
+            
+            <div class="prob-card">
+              <div class="prob-card-top">
+                <div class="prob-card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="3 21 12 3 21 21"/><line x1="3" y1="21" x2="21" y2="21"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+                </div>
+                <div>
+                  <div class="prob-card-num">P1</div>
+                  <h3 class="prob-card-title">Triângulo Retângulo de Maior Área</h3>
+                </div>
+              </div>
+              <p class="prob-card-desc">Catetos $x, y$ com soma fixa $x + y = S$. Maximizar $A = \frac{xy}{2}$.</p>
+              <div class="math-block">$$A_{\max} = \frac{S^2}{8}, \quad x = y = \frac{S}{2}$$</div>
+              <div class="prob-methods">
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-method-text">$xy \leq \!\left(\frac{S}{2}\right)^{\!2}$, igualdade em $x = y$</span>
+                </div>
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--calc"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> Cálculo</span>
+                  <span class="prob-method-text">$f'(x)=0 \Rightarrow x=\tfrac{S}{2}$, $f''<0$ ✓</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="prob-card prob-card--highlight">
+              <div class="prob-card-top">
+                <div class="prob-card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 2 L12 12 L19 19"/><line x1="5" y1="19" x2="19" y2="5"/></svg>
+                </div>
+                <div>
+                  <div class="prob-card-num">P2</div>
+                  <h3 class="prob-card-title">Cone Inscrito numa Esfera</h3>
+                </div>
+              </div>
+              <p class="prob-card-desc">Esfera de raio $R$. Inscrever o cone de volume máximo.</p>
+              <div class="math-block">$$V(h)=\tfrac{\pi h^2}{3}(2R-h),\quad h_{\rm ót}=\tfrac{4R}{3}$$</div>
+              <div class="prob-methods">
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-method-text">$\tfrac{h}{2}\cdot\tfrac{h}{2}\cdot(2R-h)\leq\!\left(\tfrac{2R}{3}\right)^{\!3}$</span>
+                </div>
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--calc"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> Cálculo</span>
+                  <span class="prob-method-text">$V'(h)=0\Rightarrow h=\tfrac{4R}{3}$, $V_{\max}=\tfrac{32\pi R^3}{81}$ ✓</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="prob-card">
+              <div class="prob-card-top">
+                <div class="prob-card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+                </div>
+                <div>
+                  <div class="prob-card-num">P3</div>
+                  <h3 class="prob-card-title">Cilindro Inscrito num Cone</h3>
+                </div>
+              </div>
+              <p class="prob-card-desc">Cone de raio $R$, altura $H$. Inscrever o cilindro de volume máximo.</p>
+              <div class="math-block">$$V(r)=\tfrac{\pi H}{R}r^2(R-r),\quad r_{\rm ót}=\tfrac{2R}{3}$$</div>
+              <div class="prob-methods">
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-method-text">$\tfrac{r}{2}\cdot\tfrac{r}{2}\cdot(R-r)\leq\!\left(\tfrac{R}{3}\right)^{\!3}$</span>
+                </div>
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--calc"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> Cálculo</span>
+                  <span class="prob-method-text">$V'(r)=0\Rightarrow r=\tfrac{2R}{3}$, $V_{\max}=\tfrac{4\pi HR^2}{27}$ ✓</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="prob-card">
+              <div class="prob-card-top">
+                <div class="prob-card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <div>
+                  <div class="prob-card-num">P4</div>
+                  <h3 class="prob-card-title">Caixa Aberta de Volume Máximo</h3>
+                </div>
+              </div>
+              <p class="prob-card-desc">Folha $a\times a$: cortar cantos de lado $x$ e dobrar para maximizar volume.</p>
+              <div class="math-block">$$V(x)=x(a-2x)^2,\quad x_{\rm ót}=\tfrac{a}{6},\quad V_{\max}=\tfrac{2a^3}{27}$$</div>
+              <div class="prob-methods">
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-method-text">$(a-2x)^2\cdot 4x\leq\!\left(\tfrac{2a}{3}\right)^{\!3}$, igualdade $x=\tfrac{a}{6}$</span>
+                </div>
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--calc"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> Cálculo</span>
+                  <span class="prob-method-text">$V'=0\Rightarrow x=\tfrac{a}{6}$ ✓</span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div class="prob-card prob-card--result">
+              <div class="prob-card-top">
+                <div class="prob-card-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <div>
+                  <div class="prob-card-num">P5</div>
+                  <h3 class="prob-card-title">Paralelepípedo Inscrito numa Esfera</h3>
+                </div>
+              </div>
+              <p class="prob-card-desc">Esfera de raio $R$. Paralelepípedo inscrito com $x_1^2+x_2^2+x_3^2=4R^2$.</p>
+              <div class="math-block">$$\sqrt[3]{x_1 x_2 x_3}\leq\frac{2R}{\sqrt{3}},\quad V_{\max}=\left(\tfrac{2R}{\sqrt 3}\right)^{\!3}$$</div>
+              <div class="prob-methods">
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-method-text">Máximo quando $x_1=x_2=x_3$ — o <strong>cubo</strong></span>
+                </div>
+                <div class="prob-method">
+                  <span class="prob-badge prob-badge--calc"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> Cálculo</span>
+                  <span class="prob-method-text">Multiplicadores de Lagrange → mesmo resultado ✓</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="intuition-block" style="margin-top:40px;max-width:900px;">
+            <div class="intuition-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="intuition-text">
+              <strong>Nota:</strong> AM–GM brilha quando o problema tem estrutura de produto com soma fixa. O Cálculo é mais geral e sistemático. A beleza está em enxergar o mesmo problema por perspectivas diferentes.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      
+      <div class="section-wave" aria-hidden="true" style="background:var(--white)"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,30 C400,70 800,0 1200,45 C1320,60 1390,20 1440,35 L1440,70 L0,70 Z" fill="#eef4ff"/></svg></div>
+      <section class="quiz" id="quiz" style="position:relative;overflow:hidden;padding-bottom:70px;">
         <div class="container">
           <div class="quiz-card">
             <h2 class="quiz-title">Quiz</h2>
@@ -2502,6 +3212,12 @@ footer { background: var(--white); }
             </div>
           </div>
         </div>
+
+        <div class="section-wave" aria-hidden="true" style="position:absolute;bottom:0;left:0;width:100%;line-height:0;">
+          <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;">
+            <path d="M0,35 C300,70 600,5 900,40 C1100,65 1300,15 1440,45 L1440,70 L0,70 Z" fill="var(--white)"/>
+          </svg>
+        </div>
       </section>
 
     </article>
@@ -2523,6 +3239,8 @@ footer { background: var(--white); }
             <li><a href="#introducao" class="footer-link">Introdução</a></li>
             <li><a href="#simulador" class="footer-link">Simulador</a></li>
             <li><a href="#prova" class="footer-link">Resolução</a></li>
+            <li><a href="#medias" class="footer-link">Desig. Médias</a></li>
+            <li><a href="#problemas" class="footer-link">Problemas</a></li>
             <li><a href="#quiz" class="footer-link">Quiz</a></li>
           </ul>
         </div>
@@ -2542,7 +3260,7 @@ footer { background: var(--white); }
     </div>
     <div class="footer-bottom">
       <p class="copyright">
-        &copy; 2026 Problemas de Otimização em Cálculo Diferencial
+        &copy; 2026 | Problemas de Otimização, FUV
       </p>
     </div>
   </footer>
@@ -2646,8 +3364,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const graphCtx = graphCanvas?.getContext('2d');
 
   
-  const dark = () => false;
-
+  
   function state(eff) {
     return eff < 0.50 ? 'sad' : eff < 0.95 ? 'ok' : 'happy';
   }
@@ -2667,7 +3384,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const W = enclosureCanvas.width;
     const H = enclosureCanvas.height;
     encCtx.clearRect(0, 0, W, H);
-    const d = dark();
 
     const y    = 10 - x;
     const maxD = Math.max(x, y);
@@ -2679,27 +3395,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const oy   = (H - ph) / 2;
 
     
-    encCtx.fillStyle = d ? '#1e2018' : '#f0ede4';
+    encCtx.fillStyle = '#f0ede4';
     encCtx.beginPath();
     encCtx.roundRect(0, 0, W, H, 12);
     encCtx.fill();
 
     
     const grd = encCtx.createLinearGradient(ox, oy, ox + pw, oy + ph);
-    if (d) {
-      grd.addColorStop(0, '#1e2e14');
-      grd.addColorStop(1, '#162410');
-    } else {
+    
       grd.addColorStop(0, '#dcebd4');
       grd.addColorStop(1, '#c8dfc0');
-    }
+    
     encCtx.fillStyle = grd;
     encCtx.beginPath();
     encCtx.roundRect(ox, oy, pw, ph, 8);
     encCtx.fill();
 
     
-    encCtx.strokeStyle = d ? 'rgba(100,160,60,0.12)' : 'rgba(80,130,40,0.12)';
+    encCtx.strokeStyle = 'rgba(80,130,40,0.12)';
     encCtx.lineWidth = 1;
     for (let i = 1; i < 6; i++) {
       const lx = ox + pw * i / 6;
@@ -2726,12 +3439,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     
-    encCtx.strokeStyle = d ? 'rgba(0,0,0,0.3)' : 'rgba(0,0,0,0.08)';
+    encCtx.strokeStyle = 'rgba(0,0,0,0.08)';
     encCtx.lineWidth = 6;
     encCtx.beginPath(); encCtx.roundRect(ox + 2, oy + 2, pw, ph, 4); encCtx.stroke();
 
     
-    const fenceColor = d ? '#9a8060' : '#b89a70';
+    const fenceColor = '#b89a70';
     encCtx.strokeStyle = fenceColor;
     encCtx.lineWidth   = 2.5;
     const rOff = 8;
@@ -2749,14 +3462,14 @@ document.addEventListener('DOMContentLoaded', function () {
     encCtx.beginPath(); encCtx.roundRect(ox, oy, pw, ph, 4); encCtx.stroke();
 
     
-    const postColor = d ? '#7a6040' : '#8a6a40';
+    const postColor = '#8a6a40';
     encCtx.fillStyle = postColor;
     [[ox, oy], [ox + pw, oy], [ox, oy + ph], [ox + pw, oy + ph]].forEach(([px, py]) => {
       encCtx.beginPath(); encCtx.arc(px, py, 4, 0, Math.PI * 2); encCtx.fill();
     });
 
     
-    encCtx.fillStyle  = d ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.40)';
+    encCtx.fillStyle  = 'rgba(0,0,0,0.40)';
     encCtx.font       = 'bold 11px Poppins, system-ui';
     encCtx.textAlign  = 'center';
     encCtx.fillText(x.toFixed(1) + ' m', ox + pw / 2, Math.min(H - 6, oy + ph + 20));
@@ -2769,12 +3482,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
     const area = x * y;
-    encCtx.fillStyle = d ? 'rgba(255,255,255,0.6)' : 'rgba(15,10,51,0.55)';
+    encCtx.fillStyle = 'rgba(15,10,51,0.55)';
     encCtx.font = 'bold 14px Poppins, system-ui';
     encCtx.textAlign = 'center';
     encCtx.fillText(area.toFixed(1) + ' m²', ox + pw / 2, oy + ph / 2 + 5);
 
-    // Position dog just outside the right edge of the enclosure
+    
     const dogPanel = document.getElementById('dogPanel');
     if (dogPanel) {
       const sX = (enclosureCanvas.clientWidth  || W) / W;
@@ -2788,7 +3501,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const W = graphCanvas.width;
     const H = graphCanvas.height;
     graphCtx.clearRect(0, 0, W, H);
-    const d = dark();
 
     const pad = { l: 92, r: 44, t: 44, b: 76 };
     const cw  = W - pad.l - pad.r;
@@ -2799,13 +3511,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function py(y) { return pad.t + ch - (y - yMin) / (yMax - yMin) * ch; }
 
     
-    graphCtx.fillStyle = d ? '#1e1c1a' : '#faf9f6';
+    graphCtx.fillStyle = '#faf9f6';
     graphCtx.beginPath();
     graphCtx.roundRect(0, 0, W, H, 12);
     graphCtx.fill();
 
     
-    graphCtx.strokeStyle = d ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)';
+    graphCtx.strokeStyle = 'rgba(0,0,0,0.05)';
     graphCtx.lineWidth = 1;
     [0, 5, 10, 15, 20, 25].forEach(yg => {
       graphCtx.beginPath(); graphCtx.moveTo(pad.l, py(yg)); graphCtx.lineTo(pad.l + cw, py(yg)); graphCtx.stroke();
@@ -2815,7 +3527,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     
-    graphCtx.strokeStyle = d ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.18)';
+    graphCtx.strokeStyle = 'rgba(0,0,0,0.18)';
     graphCtx.lineWidth = 1;
     graphCtx.beginPath();
     graphCtx.moveTo(pad.l, pad.t); graphCtx.lineTo(pad.l, pad.t + ch);
@@ -2823,7 +3535,7 @@ document.addEventListener('DOMContentLoaded', function () {
     graphCtx.stroke();
 
     
-    graphCtx.fillStyle = d ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)';
+    graphCtx.fillStyle = 'rgba(0,0,0,0.3)';
     graphCtx.font = '20px Poppins, system-ui';
     graphCtx.textAlign = 'right';
     [0, 5, 10, 15, 20, 25].forEach(yg => graphCtx.fillText(yg, pad.l - 12, py(yg) + 6));
@@ -2837,13 +3549,13 @@ document.addEventListener('DOMContentLoaded', function () {
     graphCtx.restore();
 
     
-    graphCtx.fillStyle = d ? 'rgba(15,82,186,0.08)' : 'rgba(15,82,186,0.07)';
+    graphCtx.fillStyle = 'rgba(15,82,186,0.07)';
     graphCtx.beginPath(); graphCtx.moveTo(px(0), py(0));
     for (let xi = 0; xi <= 10; xi += 0.05) graphCtx.lineTo(px(xi), py(10 * xi - xi * xi));
     graphCtx.lineTo(px(10), py(0)); graphCtx.closePath(); graphCtx.fill();
 
     
-    graphCtx.strokeStyle = d ? '#6e95e8' : '#4773d6';
+    graphCtx.strokeStyle = '#4773d6';
     graphCtx.lineWidth = 2.5; graphCtx.lineJoin = 'round';
     graphCtx.beginPath();
     for (let xi = 0; xi <= 10; xi += 0.04) {
@@ -2857,7 +3569,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const slope = 10 - 2 * xv;
     const ty1   = av + slope * (xMin - xv);
     const ty2   = av + slope * (xMax - xv);
-    graphCtx.strokeStyle = d ? '#5B8DEF' : '#B45309';
+    graphCtx.strokeStyle = '#B45309';
     graphCtx.lineWidth = 1.8;
     graphCtx.setLineDash([5, 4]);
     graphCtx.beginPath();
@@ -2868,35 +3580,35 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const lx = px(xv) + (xv < 6 ? 16 : -140);
     const ly = Math.max(pad.t + 24, py(av) + 28);
-    graphCtx.fillStyle = d ? '#5B8DEF' : '#B45309';
+    graphCtx.fillStyle = '#B45309';
     graphCtx.font = '20px Poppins, system-ui'; graphCtx.textAlign = 'left';
     graphCtx.fillText("A′(x) = " + slope.toFixed(1), lx, ly);
 
     
-    graphCtx.strokeStyle = d ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.10)';
+    graphCtx.strokeStyle = 'rgba(0,0,0,0.10)';
     graphCtx.lineWidth = 1; graphCtx.setLineDash([3, 3]);
     graphCtx.beginPath(); graphCtx.moveTo(px(xv), py(av)); graphCtx.lineTo(px(xv), py(0));
     graphCtx.stroke(); graphCtx.setLineDash([]);
 
     
-    graphCtx.strokeStyle = d ? 'rgba(15,82,186,0.35)' : 'rgba(15,82,186,0.3)';
+    graphCtx.strokeStyle = 'rgba(15,82,186,0.3)';
     graphCtx.lineWidth = 1; graphCtx.setLineDash([2, 3]);
     graphCtx.beginPath(); graphCtx.moveTo(px(5), py(25)); graphCtx.lineTo(px(5), py(0));
     graphCtx.stroke(); graphCtx.setLineDash([]);
 
     
-    graphCtx.fillStyle   = d ? '#6e95e8' : '#4773d6';
-    graphCtx.strokeStyle = d ? '#18171a' : '#fff';
+    graphCtx.fillStyle   = '#4773d6';
+    graphCtx.strokeStyle = '#fff';
     graphCtx.lineWidth = 2;
     graphCtx.beginPath(); graphCtx.arc(px(5), py(25), 5, 0, Math.PI * 2);
     graphCtx.fill(); graphCtx.stroke();
-    graphCtx.fillStyle = d ? '#6e95e8' : '#4773d6';
+    graphCtx.fillStyle = '#4773d6';
     graphCtx.font = '20px Poppins, system-ui'; graphCtx.textAlign = 'center';
     graphCtx.fillText('máx (5, 25)', px(5) - 60, py(25) - 14);
 
     
     graphCtx.fillStyle   = '#FBBF24';
-    graphCtx.strokeStyle = d ? '#18171a' : '#fff';
+    graphCtx.strokeStyle = '#fff';
     graphCtx.lineWidth = 2.5;
     graphCtx.beginPath(); graphCtx.arc(px(xv), py(av), 6, 0, Math.PI * 2);
     graphCtx.fill(); graphCtx.stroke();
@@ -3122,14 +3834,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 </script>
-<script>
-'use strict';
 
-(function() {
-  document.documentElement.setAttribute('data-theme', 'light');
-  localStorage.setItem('theme', 'light');
-})();
-
-</script>
 </body>
 </html>
