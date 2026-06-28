@@ -255,6 +255,10 @@
   margin-bottom: 18px;
 }
 
+@media (min-width: 1024px) {
+  .medias-eyebrow { display: none; }
+}
+
 .medias-title {
   font-size: clamp(26px, 5vw, 40px);
   font-weight: var(--weight-700);
@@ -2631,12 +2635,12 @@ html {
 
 /* --- Section progress pill (mobile UX cue) --- */
 .section-progress-pill {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 1023px) {
   .section-progress-pill {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     gap: 6px;
     background: rgba(15,82,186,0.08);
@@ -2906,10 +2910,7 @@ html {
       
       <section class="conteudo" id="introducao">
         <div class="container">
-          <div class="section-progress-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            Introdução
-          </div>
+
           <h2 class="h2 section-title">O Que São Problemas de Otimização?</h2>
           <p class="section-text">
             Situações em que queremos encontrar o <strong>melhor valor possível</strong> de uma quantidade 
@@ -3000,10 +3001,7 @@ html {
 
       <section class="simulador-section" id="simulador">
         <div class="container">
-          <div class="section-progress-pill" style="justify-content:center;display:flex;width:fit-content;margin-inline:auto;margin-bottom:12px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="10" cy="6" r="2" fill="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/></svg>
-            Simulador Interativo
-          </div>
+
           <h2 class="h2 section-title simulador-title" style="text-align:center;">Explore o Problema</h2>
           <p class="section-text simulador-subtitle" style="text-align:center;">
             Você tem <strong>20 metros de cerca</strong> e quer construir um cercado retangular para o cachorro Bob.
@@ -3118,10 +3116,7 @@ html {
 
       <section class="conteudo prova-section" id="prova">
         <div class="container">
-          <div class="section-progress-pill">
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
-            Resolução Matemática
-          </div>
+
           <h2 class="h2 section-title">Resolução Matemática Completa</h2>
           <p class="section-text">
             Veja o passo a passo rigoroso que transforma a descrição verbal do problema 
@@ -3224,10 +3219,7 @@ html {
 
           
           <div class="medias-header">
-            <div class="medias-eyebrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              Ferramenta Clássica
-            </div>
+
             <h2 class="h2 medias-title">Desigualdade das Médias</h2>
             <p class="medias-subtitle">
               Antes do Cálculo existir, matemáticos já resolviam otimização com elegância pura — 
@@ -3339,10 +3331,7 @@ html {
         <div class="container">
 
           <div class="problemas-header">
-            <div class="medias-eyebrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M6 20V10l6-6 6 6v10"/></svg>
-              Dois métodos · mesma resposta
-            </div>
+
             <h2 class="h2 problemas-title">Problemas Clássicos</h2>
             <p class="problemas-subtitle">AM–GM e Cálculo chegam à mesma solução — cada um com sua elegância.</p>
           </div>
