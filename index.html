@@ -2749,6 +2749,107 @@ html {
   }
 }
 
+/* --- Proof Cards (new layout) --- */
+.proof-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.proof-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--white-2);
+  border-radius: 14px;
+  padding: 18px 18px;
+  border: 1px solid rgba(71,115,214,0.10);
+  transition: box-shadow 0.2s;
+}
+
+.proof-card:hover {
+  box-shadow: 0 4px 18px rgba(15,82,186,0.09);
+}
+
+.proof-card--highlight {
+  background: #DDEAFF;
+  border-color: rgba(15,82,186,0.20);
+}
+
+.proof-card-step {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--royal-azul-escuro);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.proof-card--highlight .proof-card-step {
+  background: var(--azul);
+}
+
+.proof-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.proof-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--royal-azul-escuro);
+  margin-bottom: 4px;
+}
+
+.proof-card-text {
+  font-size: 13px;
+  color: var(--cinza03);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.proof-card--result {
+  background: linear-gradient(135deg, var(--royal-azul-escuro) 0%, #0F52BA 100%);
+  border-color: transparent;
+  padding: 22px 20px;
+  display: block;
+}
+
+.proof-card-result-inner { width: 100%; }
+
+.proof-card-result-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #FBBF24;
+  margin-bottom: 12px;
+}
+
+.proof-card--result .math-block {
+  background: rgba(251,191,36,0.10) !important;
+  border-left-color: #FBBF24 !important;
+  color: #fff;
+}
+
+.proof-card-result-text {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+  margin-top: 12px;
+}
+
+.proof-card-result-text strong { color: #fff; }
+
 /* --- Sim How-to Grid (inside collapsible) --- */
 .sim-how-grid {
   display: grid;
@@ -2906,7 +3007,7 @@ html {
           <h2 class="h2 section-title">O Que São Problemas de Otimização?</h2>
           <p class="section-text">
             Situações em que queremos encontrar o <strong>melhor valor possível</strong> de uma quantidade 
-            — o maior lucro, o menor custo, a maior área — sujeita a uma restrição.
+            como o maior lucro, o menor custo ou a maior área, sujeita a uma restrição.
             As derivadas nos dizem exatamente onde uma função "para de crescer" (máximo) ou "para de cair" (mínimo):
             isso ocorre nos pontos onde $f'(x) = 0$.
           </p>
@@ -2942,7 +3043,7 @@ html {
             </div>
             <div class="intuition-text">
               <strong>Intuição Geométrica:</strong> Com 20 metros de cerca você pode fazer um corredor estreito ($1m \times 9m = 9m^2$) 
-              ou um quadrado ($5m \times 5m = 25m^2$). O perímetro é o mesmo — a área muda dramaticamente. 
+              ou um quadrado ($5m \times 5m = 25m^2$). O perímetro é o mesmo, mas a área muda dramaticamente. 
               A função $A(x)$ captura essa variação, e sua derivada aponta o pico exato.
             </div>
           </div>
@@ -2954,7 +3055,7 @@ html {
           <div class="content">
             <p>
               A derivada $f'(x)$ mede a taxa de variação instantânea. Quando $f'(x) > 0$, a função cresce; 
-              quando $f'(x) &lt; 0$, decresce. O ponto onde $f'(x) = 0$ é onde a função "vira" — máximos e mínimos vivem ali. 
+              quando $f'(x) &lt; 0$, decresce. O ponto onde $f'(x) = 0$ é onde a função "vira": máximos e mínimos vivem ali. 
               Para confirmar: $f''(x) &lt; 0$ indica máximo, $f''(x) > 0$ indica mínimo.
             </p>
           </div>
@@ -3017,15 +3118,15 @@ html {
               </div>
               <div class="sim-explainer-item">
                 <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 20 3 4 21 20 3 20"/></svg></span>
-                <div><strong>Vista aérea</strong> — O retângulo muda de forma conforme você ajusta $x$ — mais largo e achatado ou mais estreito e comprido.</div>
+                <div><strong>Vista aérea</strong>: O retângulo muda de forma conforme você ajusta $x$, ficando mais largo e achatado ou mais estreito e comprido.</div>
               </div>
               <div class="sim-explainer-item">
                 <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
-                <div><strong>Gráfico</strong> — Mostra a parábola $A(x) = x(10-x)$. A reta tracejada é a tangente com inclinação $A'(x) = 10-2x$. Quando ela é zero, chegamos ao máximo.</div>
+                <div><strong>Gráfico</strong>: Mostra a parábola $A(x) = x(10-x)$. A reta tracejada é a tangente com inclinação $A'(x) = 10-2x$. Quando ela é zero, chegamos ao máximo.</div>
               </div>
               <div class="sim-explainer-item">
                 <span class="sim-explainer-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2 .336-3.5 2-3.5 4 0 1.381.956 2.766 2.5 3.5L6 11l2 2h4l2-2 .5-.5C16.044 9.766 17 8.381 17 7c0-2-1.5-3.664-3.5-4C11.577 2.679 10 3.782 10 5.172z"/><path d="M6 11v7a1 1 0 0 0 1 1h2v-3h2v3h2a1 1 0 0 0 1-1v-7"/></svg></span>
-                <div><strong>Bob</strong> — Fica triste longe do máximo e feliz ao atingir o ponto ótimo: $x = 5$ m, área máxima de <strong>25 m²</strong>.</div>
+                <div><strong>Bob</strong>: Fica triste longe do máximo e feliz ao atingir o ponto ótimo: $x = 5$ m, área máxima de <strong>25 m²</strong>.</div>
               </div>
             </div>
           </div>
@@ -3193,7 +3294,7 @@ html {
                 <div class="math-block">$$x = 5\,\text{m},\quad y = 10 - 5 = 5\,\text{m},\quad A_{\max} = 5 \times 5 = 25\,\text{m}^2$$</div>
                 <p class="step-text result-conclusion">
                   O cercado de área máxima é um <strong>quadrado de 5m × 5m</strong>. 
-                  A simetria não é coincidência — é a matemática sendo elegante!
+                  A simetria não é coincidência: é a matemática sendo elegante!
                 </p>
               </div>
             </div>
@@ -3223,7 +3324,7 @@ html {
             </div>
             <h2 class="h2 medias-title">Desigualdade das Médias</h2>
             <p class="medias-subtitle">
-              Antes do Cálculo existir, matemáticos já resolviam otimização com elegância pura — 
+              Antes do Cálculo existir, matemáticos já resolviam otimização com elegância pura, 
               sem uma única derivada.
             </p>
           </div>
@@ -3232,7 +3333,7 @@ html {
           <div class="medias-split">
             <div class="medias-formula-col">
               <div class="medias-formula-card">
-                <div class="medias-formula-label">AM–GM · dois termos</div>
+                <div class="medias-formula-label">AM GM dois termos</div>
                 <div class="medias-formula-display">
                   $$\sqrt{ab} \;\leq\; \frac{a+b}{2}$$
                 </div>
@@ -3246,7 +3347,7 @@ html {
             <div class="medias-explain-col">
               <p class="medias-explain-text">
                 A <strong>média geométrica</strong> $\sqrt{ab}$ é sempre menor ou igual à 
-                <strong>média aritmética</strong> $\frac{a+b}{2}$ — para quaisquer $a, b > 0$.
+                <strong>média aritmética</strong> $\frac{a+b}{2}$, para quaisquer $a, b > 0$.
               </p>
               <p class="medias-explain-text">
                 O máximo (ou mínimo) acontece exatamente quando as variáveis são iguais. 
@@ -3258,8 +3359,8 @@ html {
                 </div>
                 <div>
                   <strong>No problema do cercado:</strong> maximizar $A = xy$ com $x + y = 10$.
-                  Por AM–GM: $\sqrt{xy} \leq \frac{x+y}{2} = 5$, então $xy \leq 25$.
-                  Máximo quando $x = y = 5$ — o mesmo quadrado que o Cálculo nos deu.
+                  Por AM GM: $\sqrt{xy} \leq \frac{x+y}{2} = 5$, então $xy \leq 25$.
+                  Máximo quando $x = y = 5$, o mesmo quadrado que o Cálculo nos deu.
                 </div>
               </div>
             </div>
@@ -3271,7 +3372,7 @@ html {
               <div class="medias-prop-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </div>
-              <h4 class="medias-prop-title">Generalização AM–GM</h4>
+              <h4 class="medias-prop-title">Generalização AM GM</h4>
               <p class="medias-prop-text">Para $n$ termos positivos: $\sqrt[n]{x_1 \cdots x_n} \leq \frac{x_1 + \cdots + x_n}{n}$, com igualdade sse $x_1 = \cdots = x_n$.</p>
             </div>
             <div class="medias-prop-card">
@@ -3286,7 +3387,7 @@ html {
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <h4 class="medias-prop-title">Elegância vs. Generalidade</h4>
-              <p class="medias-prop-text">AM–GM traz soluções mais diretas quando a estrutura do problema encaixa. O Cálculo Diferencial é mais geral e sistemático.</p>
+              <p class="medias-prop-text">AM GM traz soluções mais diretas quando a estrutura do problema encaixa. O Cálculo Diferencial é mais geral e sistemático.</p>
             </div>
           </div>
 
@@ -3315,7 +3416,7 @@ html {
             <button type="button" class="collapsible">
               <span class="collapsible-inner">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-                Generalização para $n$ números (AM–GM)
+                Generalização para $n$ números (AM GM)
               </span>
             </button>
             <div class="content">
@@ -3347,17 +3448,17 @@ html {
           <div class="problemas-header">
             <div class="medias-eyebrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M6 20V10l6-6 6 6v10"/></svg>
-              Dois métodos · mesma resposta
+              Dois métodos, mesma resposta
             </div>
             <h2 class="h2 problemas-title">Problemas Clássicos</h2>
-            <p class="problemas-subtitle">AM–GM e Cálculo chegam à mesma solução — cada um com sua elegância.</p>
+            <p class="problemas-subtitle">AM GM e Cálculo chegam à mesma solução — cada um com sua elegância.</p>
           </div>
 
           
           <div class="prob-legend">
             <span class="prob-badge prob-badge--amgm">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              AM–GM
+              AM GM
             </span>
             <span class="prob-badge prob-badge--calc">
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
@@ -3382,7 +3483,7 @@ html {
               <div class="math-block">$$A_{\max} = \frac{S^2}{8}, \quad x = y = \frac{S}{2}$$</div>
               <div class="prob-methods">
                 <div class="prob-method">
-                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM GM</span>
                   <span class="prob-method-text">$xy \leq \!\left(\frac{S}{2}\right)^{\!2}$, igualdade em $x = y$</span>
                 </div>
                 <div class="prob-method">
@@ -3407,7 +3508,7 @@ html {
               <div class="math-block">$$V(h)=\tfrac{\pi h^2}{3}(2R-h),\quad h_{\rm ót}=\tfrac{4R}{3}$$</div>
               <div class="prob-methods">
                 <div class="prob-method">
-                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM GM</span>
                   <span class="prob-method-text">$\tfrac{h}{2}\cdot\tfrac{h}{2}\cdot(2R-h)\leq\!\left(\tfrac{2R}{3}\right)^{\!3}$</span>
                 </div>
                 <div class="prob-method">
@@ -3432,7 +3533,7 @@ html {
               <div class="math-block">$$V(r)=\tfrac{\pi H}{R}r^2(R-r),\quad r_{\rm ót}=\tfrac{2R}{3}$$</div>
               <div class="prob-methods">
                 <div class="prob-method">
-                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM GM</span>
                   <span class="prob-method-text">$\tfrac{r}{2}\cdot\tfrac{r}{2}\cdot(R-r)\leq\!\left(\tfrac{R}{3}\right)^{\!3}$</span>
                 </div>
                 <div class="prob-method">
@@ -3457,7 +3558,7 @@ html {
               <div class="math-block">$$V(x)=x(a-2x)^2,\quad x_{\rm ót}=\tfrac{a}{6},\quad V_{\max}=\tfrac{2a^3}{27}$$</div>
               <div class="prob-methods">
                 <div class="prob-method">
-                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM GM</span>
                   <span class="prob-method-text">$(a-2x)^2\cdot 4x\leq\!\left(\tfrac{2a}{3}\right)^{\!3}$, igualdade $x=\tfrac{a}{6}$</span>
                 </div>
                 <div class="prob-method">
@@ -3482,7 +3583,7 @@ html {
               <div class="math-block">$$\sqrt[3]{x_1 x_2 x_3}\leq\frac{2R}{\sqrt{3}},\quad V_{\max}=\left(\tfrac{2R}{\sqrt 3}\right)^{\!3}$$</div>
               <div class="prob-methods">
                 <div class="prob-method">
-                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM–GM</span>
+                  <span class="prob-badge prob-badge--amgm"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> AM GM</span>
                   <span class="prob-method-text">Máximo quando $x_1=x_2=x_3$ — o <strong>cubo</strong></span>
                 </div>
                 <div class="prob-method">
@@ -3499,7 +3600,7 @@ html {
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             </div>
             <div class="intuition-text">
-              <strong>Nota:</strong> AM–GM brilha quando o problema tem estrutura de produto com soma fixa. O Cálculo é mais geral e sistemático. A beleza está em enxergar o mesmo problema por perspectivas diferentes.
+              <strong>Nota:</strong> AM GM brilha quando o problema tem estrutura de produto com soma fixa. O Cálculo é mais geral e sistemático. A beleza está em enxergar o mesmo problema por perspectivas diferentes.
             </div>
           </div>
 
@@ -4103,14 +4204,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (st === 'sad') {
       dogStateBadge.textContent = 'Crítico';
       dogStateBadge.classList.add('state-sad');
-      if (dogStateDesc) dogStateDesc.textContent = `|A′(x)| elevado — área distante do máximo (${area.toFixed(1)}m²). Aproxime x de 5.`;
+      if (dogStateDesc) dogStateDesc.textContent = `|A′(x)| elevado: área distante do máximo (${area.toFixed(1)}m²). Aproxime x de 5.`;
     } else if (st === 'ok') {
       dogStateBadge.textContent = 'Convergindo';
       if (dogStateDesc) dogStateDesc.textContent = `A′(x) se aproxima de zero. Continue ajustando! (${area.toFixed(1)}m²)`;
     } else {
       dogStateBadge.textContent = 'Ótimo!';
       dogStateBadge.classList.add('state-happy');
-      if (dogStateDesc) dogStateDesc.textContent = `A′(x) ≈ 0 — máximo confirmado! A″(x)=−2<0 prova o máximo. Área: ${area.toFixed(1)}m².`;
+      if (dogStateDesc) dogStateDesc.textContent = `A′(x) ≈ 0: máximo confirmado! A″(x)=−2<0 prova o máximo. Área: ${area.toFixed(1)}m².`;
     }
 
     dogEfficiency.textContent = `Eficiência: ${(efficiency * 100).toFixed(0)}%`;
@@ -4255,7 +4356,7 @@ document.addEventListener('DOMContentLoaded', function () {
       pct >= 80 ? 'Excelente! Você domina problemas de otimização!' :
       pct >= 60 ? 'Bom trabalho! Sólida compreensão dos fundamentos.' :
       pct >= 40 ? 'No caminho certo! Revise os passos da derivada.' :
-      'Continue estudando — a otimização com derivadas ficará natural!';
+      'Continue estudando: a otimização com derivadas ficará natural!';
   }
 
   
