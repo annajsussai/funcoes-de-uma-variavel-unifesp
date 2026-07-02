@@ -57,6 +57,291 @@
 
 .proof-step--highlight .math-block { background: #0d1a35; }
 
+/* --- Book opening animation (references section) --- */
+.book-anim-wrap {
+  --ba-bg: var(--white-2);
+  --ba-primary: var(--azul);
+  --ba-primary-l: var(--verde-claro);
+  --ba-primary-d: var(--royal-azul-escuro);
+  --ba-white: var(--white);
+  --ba-white-d: var(--cinza04);
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 44px;
+}
+.book-anim-wrap .book,
+.book-anim-wrap .book__pg-shadow,
+.book-anim-wrap .book__pg {
+  animation: ba-cover 7s ease-in-out infinite;
+}
+.book-anim-wrap .book {
+  background-color: var(--ba-primary-l);
+  border-radius: 0.25em;
+  box-shadow:
+    0 0.25em 0.5em hsla(0,0%,0%,0.3),
+    0 0 0 0.25em var(--ba-primary) inset;
+  padding: 0.25em;
+  perspective: 37.5em;
+  position: relative;
+  width: 8em;
+  height: 6em;
+  font-size: 2.2rem;
+  transform: translate3d(0,0,0);
+  transform-style: preserve-3d;
+}
+.book-anim-wrap .book__pg-shadow,
+.book-anim-wrap .book__pg {
+  position: absolute;
+  left: 0.25em;
+  width: calc(50% - 0.25em);
+}
+.book-anim-wrap .book__pg-shadow {
+  animation-name: ba-shadow;
+  background-image: linear-gradient(-45deg,hsla(0,0%,0%,0) 50%,hsla(0,0%,0%,0.3) 50%);
+  filter: blur(0.25em);
+  top: calc(100% - 0.25em);
+  height: 3.75em;
+  transform: scaleY(0);
+  transform-origin: 100% 0%;
+}
+.book-anim-wrap .book__pg {
+  animation-name: ba-pg1;
+  background-color: var(--ba-white);
+  background-image: linear-gradient(90deg,hsla(0,0%,90%,0) 87.5%,var(--ba-bg));
+  height: calc(100% - 0.5em);
+  transform-origin: 100% 50%;
+}
+.book-anim-wrap .book__pg--2,
+.book-anim-wrap .book__pg--3,
+.book-anim-wrap .book__pg--4 {
+  background-image:
+    repeating-linear-gradient(var(--ba-primary-d) 0 0.125em, hsla(0,0%,10%,0) 0.125em 0.5em),
+    linear-gradient(90deg,hsla(0,0%,90%,0) 87.5%,var(--ba-bg));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.5em 4.125em, 100% 100%;
+}
+.book-anim-wrap .book__pg--2 { animation-name: ba-pg2; }
+.book-anim-wrap .book__pg--3 { animation-name: ba-pg3; }
+.book-anim-wrap .book__pg--4 { animation-name: ba-pg4; }
+.book-anim-wrap .book__pg--5 { animation-name: ba-pg5; }
+
+@keyframes ba-cover {
+  from, 5%, 45%, 55%, 95%, to {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-primary-l);
+  }
+  10%, 40%, 60%, 90% {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-primary-d);
+  }
+}
+@keyframes ba-shadow {
+  from, 10.01%, 20.01%, 30.01%, 40.01% {
+    animation-timing-function: ease-in;
+    transform: translate3d(0,0,1px) scaleY(0) rotateY(0);
+  }
+  5%, 15%, 25%, 35%, 45%, 55%, 65%, 75%, 85%, 95% {
+    animation-timing-function: ease-out;
+    transform: translate3d(0,0,1px) scaleY(0.2) rotateY(90deg);
+  }
+  10%, 20%, 30%, 40%, 50%, to {
+    animation-timing-function: ease-out;
+    transform: translate3d(0,0,1px) scaleY(0) rotateY(180deg);
+  }
+  50.01%, 60.01%, 70.01%, 80.01%, 90.01% {
+    animation-timing-function: ease-in;
+    transform: translate3d(0,0,1px) scaleY(0) rotateY(180deg);
+  }
+  60%, 70%, 80%, 90%, to {
+    animation-timing-function: ease-out;
+    transform: translate3d(0,0,1px) scaleY(0) rotateY(0);
+  }
+}
+@keyframes ba-pg1 {
+  from, to {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.4deg);
+  }
+  10%, 15% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(180deg);
+  }
+  20%, 80% {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(180deg);
+  }
+  85%, 90% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(180deg);
+  }
+}
+@keyframes ba-pg2 {
+  from, to {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(0.3deg);
+  }
+  5%, 10% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.3deg);
+  }
+  20%, 25% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.9deg);
+  }
+  30%, 70% {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(179.9deg);
+  }
+  75%, 80% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.9deg);
+  }
+  90%, 95% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.3deg);
+  }
+}
+@keyframes ba-pg3 {
+  from, 10%, 90%, to {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(0.2deg);
+  }
+  15%, 20% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.2deg);
+  }
+  30%, 35% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.8deg);
+  }
+  40%, 60% {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(179.8deg);
+  }
+  65%, 70% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.8deg);
+  }
+  80%, 85% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.2deg);
+  }
+}
+@keyframes ba-pg4 {
+  from, 20%, 80%, to {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(0.1deg);
+  }
+  25%, 30% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.1deg);
+  }
+  40%, 45% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.7deg);
+  }
+  50% {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(179.7deg);
+  }
+  55%, 60% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.7deg);
+  }
+  70%, 75% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0.1deg);
+  }
+}
+@keyframes ba-pg5 {
+  from, 30%, 70%, to {
+    animation-timing-function: ease-in;
+    background-color: var(--ba-white-d);
+    transform: translate3d(0,0,1px) rotateY(0);
+  }
+  35%, 40% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0deg);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(179.6deg);
+  }
+  60%, 65% {
+    animation-timing-function: ease-out;
+    background-color: var(--ba-white);
+    transform: translate3d(0,0,1px) rotateY(0);
+  }
+}
+@media (max-width: 480px) {
+  .book-anim-wrap .book { transform: scale(0.85); }
+}
+
+/* --- References layout: book on the left, list on the right --- */
+.references-layout {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.references-layout .book-anim-wrap {
+  margin: 0;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  transform: translateY(-5%);
+}
+.references-layout .book-anim-wrap .book {
+  font-size: 1.65rem;
+}
+.references-layout .references-list {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .references-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .references-layout .references-list {
+    order: 2;
+    width: 100%;
+  }
+  .references-layout .book-anim-wrap {
+    order: 1;
+    margin: 36px 0 36px;
+    justify-content: center;
+    transform: none;
+  }
+  .references-layout .book-anim-wrap .book {
+    font-size: 1.12rem;
+  }
+}
+
 .problemas-section {
   padding: 72px 0;
   background: var(--white);
@@ -3634,6 +3919,51 @@ html {
         </div>
       </section>
 
+      <section class="references" id="referencias" style="padding: 64px 0;">
+        <div class="container">
+          <div style="max-width: 700px; margin: 0 auto;">
+            <h2 style="font-family: var(--poppins); font-weight: var(--weight-700); font-size: var(--size-1); color: var(--royal-azul-escuro); text-align:center; margin-bottom: 8px;">Referências</h2>
+
+            <div class="references-layout">
+              <div class="book-anim-wrap">
+                <div class="book">
+                  <div class="book__pg-shadow"></div>
+                  <div class="book__pg"></div>
+                  <div class="book__pg book__pg--2"></div>
+                  <div class="book__pg book__pg--3"></div>
+                  <div class="book__pg book__pg--4"></div>
+                  <div class="book__pg book__pg--5"></div>
+                </div>
+              </div>
+
+              <ul class="references-list" style="list-style:none; margin:0; padding:0;">
+
+                <li style="padding: 18px 0; border-bottom: 1px solid #e4e9f2;">
+                  <span style="font-family: var(--poppins); font-weight: var(--weight-600); font-size: var(--size-4); color: #1a1a2e;">THOMAS, G. B. Cálculo: volume 1. 12. ed. São Paulo: Pearson, 2012.</span>
+                  <span style="display:block; margin-top:6px;">
+                    <a href="https://www.yumpu.com/en/document/read/63765511/calculo-1-12-ed-george-thomas" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color: var(--azul); text-decoration:none; font-size: var(--size-5);">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      Link
+                    </a>
+                  </span>
+                </li>
+
+                <li style="padding: 18px 0;">
+                  <span style="font-family: var(--poppins); font-weight: var(--weight-600); font-size: var(--size-4); color: #1a1a2e;">RODRIGUES, L. M. D. de Á.; PAULA, C. T. de. Problemas de otimização: da Matemática Básica ao Cálculo Diferencial e Integral. Minicurso, X Bienal de Matemática, Belém, 2022.</span>
+                  <span style="display:block; margin-top:6px;">
+                    <a href="https://caiotomas.github.io/files/Minicurso_XBienal.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; color: var(--azul); text-decoration:none; font-size: var(--size-5);">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      Link
+                    </a>
+                  </span>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </article>
   </main>
 
@@ -3656,6 +3986,7 @@ html {
             <li><a href="#medias" class="footer-link">Desig. Médias</a></li>
             <li><a href="#problemas" class="footer-link">Problemas</a></li>
             <li><a href="#quiz" class="footer-link">Quiz</a></li>
+            <li><a href="#referencias" class="footer-link">Referências</a></li>
           </ul>
         </div>
 
