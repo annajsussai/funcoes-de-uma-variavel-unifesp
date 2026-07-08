@@ -1,29 +1,40 @@
+<div align="center">
+  <img src="https://annajsussai.github.io/funcoes-de-uma-variavel-unifesp/images/favicon.svg" width="200" alt="Logo Projeto">
+  <p><strong>Funções de uma Variável | Problemas de Otimização</strong></p>
+</div>
 
-
-## 📌 Visão Geral
-
-Este projeto consiste na **idealização de uma interface digital** proposta no âmbito da disciplina de *Usos e Pressões em Sistemas Socioecológicos Marinhos* da Unifesp. O foco é apresentar uma solução visual para o monitoramento do Rio Jaguareguava, estruturando como um sistema de gestão preditiva poderia ser organizado sob uma ótica socioecológica.
-
-**Acesse a interface aqui:** [Prototipo-IoT-Monitoramento-Preditivo-do-Rio-Jaguareguava](https://www.google.com/search?q=https://annajsussai.github.io/Prototipo-IoT-Monitoramento-Preditivo-do-Rio-Jaguareguava/)
-
----
-
-## 💡 Proposta do Projeto
-
-Diferente de uma implementação técnica funcional, esta interface é um **mockup conceitual** que demonstra a proposta de valor do monitoramento:
-
-* **Foco Conceitual:** Organização da interface para traduzir variáveis ambientais complexas (nível, vazão, dados de qualidade de água) em uma visualização intuitiva e voltada à tomada de decisão.
-* **Idealização do Sistema:** Representa como a telemetria e o sensoriamento poderiam ser integrados ao painel se o projeto fosse implementado futuramente.
-* **Aplicação Acadêmica:** Ferramenta desenvolvida exclusivamente para atender aos requisitos teóricos e práticos da disciplina na Unifesp.
+<div align="center">
+  <img src="https://img.shields.io/badge/status-ativo-green" alt="Status">
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+  <img src="https://img.shields.io/badge/MathJax-LaTeX-orange?logo=mathjax&logoColor=white" alt="MathJax">
+</div>
+Plataforma educacional interativa desenvolvida especificamente para a disciplina de Funções de uma Variável da UNIFESP. O projeto transforma conceitos abstratos de cálculo em uma experiência visual e intuitiva, permitindo que os estudantes manipulem variáveis e visualizem o comportamento de funções em tempo real.
 
 ---
 
-## 🛠️ O que compõe a interface?
+## 🐱‍💻 Acesso ao Projeto
 
-* **Dashboard Visual:** Demonstração da hierarquia de informações necessárias para o acompanhamento do ecossistema do Rio Jaguareguava.
-* **Simulação de Dados:** Estruturação das métricas que seriam cruciais para medir pressões antrópicas no ecossistema.
-* **Modelo de Apresentação:** Interface otimizada para a exposição da viabilidade lógica do monitoramento em ambiente acadêmico.
+- **Produção:** [https://annajsussai.github.io/funcoes-de-uma-variavel-unifesp/](https://annajsussai.github.io/funcoes-de-uma-variavel-unifesp/)
+
+---
+## 📃 Resumo 
+
+Esta ferramenta didática é uma plataforma interativa que utiliza simulações gráficas, renderização de equações via LaTeX e módulos de quiz para facilitar o estudo de cálculo e problemas de otimização.
+
+**Principais Funcionalidades:**
+- **Simulador Dinâmico:** Manipulação de parâmetros para observação de mudanças gráficas em tempo real
+- **Renderização Matemática:** Exibição precisa de equações via [MathJax](https://www.mathjax.org/) (LaTeX)
+- **Metodologia Guiada:** Demonstrações passo a passo dos problemas de otimização
+- **Quiz de Fixação:** Avaliação integrada para testar o conhecimento do conteúdo estudado
 
 ---
 
-*Trabalho acadêmico desenvolvido para a disciplina de Usos e Pressões em Sistemas Socioecológicos Marinhos (UNIFESP, 2026).*
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend:** HTML5, CSS3, JavaScript (Vanilla)
+- **Matemática:** MathJax (Renderização LaTeX)
+- **Design:** Interface responsiva e acessível
+
+---
+
+*Trabalho acadêmico desenvolvido para a disciplina de Funções de Uma Variável (UNIFESP, 2026)*
